@@ -35,14 +35,23 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Built With
 
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [MaterializeCSS]https://materializecss.com/badges.html)
-* [Yelp Fusion API](https://www.yelp.com/fusion)
-* [Moment.js](https://momentjs.com/)
-* [Open Weather Map One Call API](https://openweathermap.org/api/one-call-api)
-* [Animate CSS](https://animate.style/)
+* [HTML]-   -   -   -   -   -   -   -(https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS] -   -   -   -   -   -   -   -(https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript]  -   -   -   -   -   -(https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+* [Jquery]  -   -   -   -   -   -   -(https://jquery.com/)
+* [JqueryUI]    -   -   -   -   -   -(https://jqueryui.com/)
+
+* [MaterializeCSS]  -   -   -   -   -(https://materializecss.com/badges.html)
+* [AnimateCSS]  -   -   -   -   -   -(https://animate.style/)
+
+
+
+* [YelpFusionAPI]   -   -   -   -   -(https://www.yelp.com/fusion)
+* [Open_Weather_Map_One_Call_API]   -(https://openweathermap.org/api/one-call-api)
+
+
+* [Moment.js]   -   -   -   -   -   -(https://momentjs.com/)
 
 
 ## Deployed Link
