@@ -112,7 +112,7 @@ function getYelpChurches(searchValue) {
        console.log(res.businesses[0].image_url)
        console.log(res.businesses[0].url)
 
-      var churchDiv=document.getElementById("churches")
+      var churchDiv = document.getElementById("churches")
 
       for (var i= 0; i < res.businesses.length; i++)  {
         var churches = `<div class="col s12 m7">
@@ -136,8 +136,6 @@ function getYelpChurches(searchValue) {
   });
   
 }  
-
-  
 
 function getYelpBars(searchValue) {  
 
@@ -164,27 +162,26 @@ function getYelpBars(searchValue) {
     console.log(res.businesses[0].image_url)
     console.log(res.businesses[0].url)
 
-   var barDiv=document.getElementById("bars")
+   var barDiv = document.getElementById("bars")
 
    for (var i= 0; i < res.businesses.length; i++)  {
-     var bars = `        <div id="rightContainer">
-     <div id="bars">
+     var bars = `       
          <div class="col s12 m7">
              <div class="card">
              <div class="card-image">
                  <img src="https://images.pexels.com/photos/751046/pexels-photo-751046.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-                 <span class="card-title">Bar Name</span>
+                 <span class="card-title">${res.businesses[i].name}</span>
              </div>
              <div class="card-content">
-                 <p># of Reviews</p>
+                 <p>${res.businesses[i].review_count}</p>
              </div>
              <div class="card-action">
-                 <a href="#">URL link</a>
+                 <a href="#">${res.businesses[i].url}</a>
              </div>
              </div>
          </div>`
 
-     churchDiv.innerHTML = bars
+     barDiv.innerHTML = bars
      console.log(res.businesses[i].name)
    }
 });
