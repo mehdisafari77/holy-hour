@@ -1,0 +1,159 @@
+
+#innerBody {
+  width: 100%;
+  display: flex;
+}
+
+#churches {
+  overflow: scroll;
+  width: 300px;
+  height: 600px;
+}
+
+#bars {
+  overflow: scroll;
+  width: 300px;
+  height: 600px;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+/* start of header styling */
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #c98af3;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+}
+
+.navbar {
+    display: flex;
+    background-color: #c98af3;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar p {
+    display: flex;
+    flex-direction: flex-start;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar p:hover {
+    background-color: rgb(103, 230, 235);
+    color: black;
+}
+
+.navbar input[type=text] {
+    margin-left: 10px;
+    background-color: #fff;
+    padding: 4px;
+    margin-top: 8px;
+    font-size: 17px;
+    border-radius: 10%;
+}
+
+.navbar .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: transparent;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .search-container button:hover {
+    background: #803bce;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+/* end of header styling */
+
+/* start of middle container styling */
+
+.middleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px
+    
+}
+
+#resultsBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    border: 2px dashed #803bce;
+    height: 200px;
+    width: 330px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#weatherBox{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    border: 2px dashed #803bce;
+    height: 200px;
+    width: 330px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#resultsBoxHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #803bce;
+    height: 50px;
+    width: 150px;
+}
+
+#weatherBoxHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #803bce;
+    height: 50px;
+    width: 150px;
+}
+#resultsBoxHeader p {
+    font-size: 22px;
+}
+#weatherBoxHeader p {
+    font-size: 22px;
+}
+
+
+/* end of middle container styling */
+

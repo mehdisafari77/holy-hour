@@ -1,4 +1,5 @@
 
+
 //yelp API    https://api.yelp.com/v3
 
 
@@ -39,6 +40,10 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
 // Geolocation.getCurrentPosition()
 
 
+$("#search-button").on("click", function(event) {
+    event.preventDefault();
+    var searchValue = $("#search-value").val().trim()
+})
 
 
 getIP()
@@ -107,3 +112,6 @@ console.log(weatherdata)
 });
   
 }  
+
+
+
