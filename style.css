@@ -1,0 +1,9 @@
+#churches {
+  overflow: auto;
+  display: flex;
+}
+
+#bars {
+  overflow: auto;
+  display: flex;
+}
