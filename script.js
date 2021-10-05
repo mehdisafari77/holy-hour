@@ -35,6 +35,8 @@ $("#search-button").on("click", function(event) {
     var searchValue = $("#search-value").val().trim()
 
     console.log(searchValue);
+    getYelpChurches(searchValue)
+    getYelpBars(searchValue)
 })
 
 
@@ -84,9 +86,9 @@ console.log(latlon)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-getYelpChurches()
 
-function getYelpChurches() {  
+
+function getYelpChurches(searchValue) {  
 
   let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
 
@@ -101,7 +103,7 @@ function getYelpChurches() {
     },
     data: {
         term: 'Church',
-        location: 'San diego'
+        location: searchValue
     }
   }).then(function (res) {
        console.log(res);
@@ -109,34 +111,35 @@ function getYelpChurches() {
        console.log(res.businesses[0].review_count)
        console.log(res.businesses[0].image_url)
        console.log(res.businesses[0].url)
+
+      var churchDiv=document.getElementById("churches")
+
+      for (var i= 0; i < res.businesses.length; i++)  {
+        var churches = `<div class="col s12 m7">
+        <div class="card">
+        <div class="card-image">
+            <img src="https://image.shutterstock.com/image-photo/lone-wooden-church-dusk-sunset-260nw-1186359178.jpg">
+            <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+        </div>
+        <div class="card-content church-reviews">
+            <p>${res.businesses[i].review_count}</p>
+        </div>
+        <div class="card-action church-link">
+            <a href="#">${res.businesses[i].url}</a>
+        </div>
+        </div>
+        </div>`
+
+        churchDiv.innerHTML = churches
+        console.log(res.businesses[i].name)
+      }
   });
   
 }  
 
-
-
-
-//input lat&lon
-  //input search query specifying the search radius
-
-//in a radius of 5 miles
-
-    //list of bars
-        //top reivew, or average review for each bar
-      //amount of bars
-
-    //list of churches
-        //top reivew, or average review for each church
-      //amount of churches
-
-
-    //display both of them in separate list
-
   
 
-getYelpBars()
-
-function getYelpBars() {  
+function getYelpBars(searchValue) {  
 
 
   let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
@@ -152,18 +155,41 @@ function getYelpBars() {
     },
     data: {
         term: 'Bar',
-        location: 'San diego'
+        location: searchValue
     }
   }).then(function (res) {
-       console.log(res);
-       console.log(res.businesses.length)
-       console.log(res.businesses[0].name)
-       console.log(res.businesses[0].review_count)
-       console.log(res.businesses[0].image_url)
-       console.log(res.businesses[0].url)
-  });
-  
-}  
+    console.log(res);
+    console.log(res.businesses[0].name)
+    console.log(res.businesses[0].review_count)
+    console.log(res.businesses[0].image_url)
+    console.log(res.businesses[0].url)
+
+   var barDiv=document.getElementById("bars")
+
+   for (var i= 0; i < res.businesses.length; i++)  {
+     var bars = `        <div id="rightContainer">
+     <div id="bars">
+         <div class="col s12 m7">
+             <div class="card">
+             <div class="card-image">
+                 <img src="https://images.pexels.com/photos/751046/pexels-photo-751046.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                 <span class="card-title">Bar Name</span>
+             </div>
+             <div class="card-content">
+                 <p># of Reviews</p>
+             </div>
+             <div class="card-action">
+                 <a href="#">URL link</a>
+             </div>
+             </div>
+         </div>`
+
+     churchDiv.innerHTML = bars
+     console.log(res.businesses[i].name)
+   }
+});
+
+}   
 
 
 
