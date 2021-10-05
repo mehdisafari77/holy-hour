@@ -1,3 +1,21 @@
+
+#innerBody {
+  width: 100%;
+  display: flex;
+}
+
+#churches {
+  overflow: scroll;
+  width: 300px;
+  height: 600px;
+}
+
+#bars {
+  overflow: scroll;
+  width: 300px;
+  height: 600px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -138,3 +156,4 @@ form {
 
 
 /* end of middle container styling */
+
