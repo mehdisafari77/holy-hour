@@ -122,10 +122,10 @@ function getYelpChurches(searchValue) {
             <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
         </div>
         <div class="card-content church-reviews">
-            <p>${res.businesses[i].review_count}</p>
+            <p>Reviews: ${res.businesses[i].review_count}</p>
         </div>
         <div class="card-action church-link">
-            <a href="#">${res.businesses[i].url}</a>
+            <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
         </div>
         </div>
         </div>`
@@ -173,10 +173,10 @@ function getYelpBars(searchValue) {
                  <span class="card-title">${res.businesses[i].name}</span>
              </div>
              <div class="card-content">
-                 <p>${res.businesses[i].review_count}</p>
+                 <p>Reviews: ${res.businesses[i].review_count}</p>
              </div>
              <div class="card-action">
-                 <a href="#">${res.businesses[i].url}</a>
+                <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
              </div>
              </div>
          </div>`
