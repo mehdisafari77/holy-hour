@@ -23,11 +23,16 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
+.card img{
+    height: 300px;
+    width: 450px;
+}
 
-  main {
+
+main {
     flex: 1 0 auto;
-  }
+}
 
 /* start of header styling */
 .header {

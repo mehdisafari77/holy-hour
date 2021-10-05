@@ -118,7 +118,7 @@ function getYelpChurches(searchValue) {
         var churches = `<div class="col s12 m7">
         <div class="card">
         <div class="card-image">
-            <img src="https://image.shutterstock.com/image-photo/lone-wooden-church-dusk-sunset-260nw-1186359178.jpg">
+              <img src=${res.businesses[0].image_url}>
             <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
         </div>
         <div class="card-content church-reviews">
@@ -169,7 +169,7 @@ function getYelpBars(searchValue) {
          <div class="col s12 m7">
              <div class="card">
              <div class="card-image">
-                 <img src="https://images.pexels.com/photos/751046/pexels-photo-751046.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                 <img src=${res.businesses[0].image_url}>
                  <span class="card-title">${res.businesses[i].name}</span>
              </div>
              <div class="card-content">
