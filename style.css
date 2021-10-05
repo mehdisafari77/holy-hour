@@ -1,9 +1,16 @@
-#churches {
-  overflow: auto;
+#innerBody {
+  width: 100%;
   display: flex;
 }
 
+#churches {
+  overflow: scroll;
+  width: 300px;
+  height: 600px;
+}
+
 #bars {
-  overflow: auto;
-  display: flex;
+  overflow: scroll;
+  width: 300px;
+  height: 600px;
 }
