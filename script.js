@@ -8,17 +8,18 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
 //This is an object
 //contianing the church search result data
-var searchRequest1 = {
-    term:'church',
-    location: searchQuery
-  };
 
-//this is an object
-//containing the bars search result data
-var searchRequest2 = {
-    term:'bar',
-    location: searchQuery
-  };
+// var searchRequest1 = {
+//     term:'church',
+//     location: searchQuery
+//   };
+
+// //this is an object
+// //containing the bars search result data
+// var searchRequest2 = {
+//     term:'bar',
+//     location: searchQuery
+//   };
 
 // both of these will need to be ran through two seprate fetches
     // both fetches will need to occur after the location is typed in.
@@ -42,21 +43,21 @@ $("#search-button").on("click", function(event) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-getIP()
+// getIP()
 
-function getIP() {  
+// function getIP() {  
 
-$.ajax({
-  url: 'https://api.ipify.org',
-  method: 'GET',
-  dataType: 'JSON',
-})
+// $.ajax({
+//   url: 'https://api.ipify.org',
+//   method: 'GET',
+//   dataType: 'JSON',
+// })
 
-.done(function(ip){
-console.log(ip)
-});
+// .done(function(ip){
+// console.log(ip)
+// });
   
-}  
+// }  
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,17 +88,32 @@ getYelpChurches()
 
 function getYelpChurches() {  
 
-$.ajax({
-  url: 'https://api.ipify.org',
-  method: 'GET',
-  dataType: 'JSON',
-})
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
 
-.done(function(yelpdata){
-console.log(yelpdata)
-});
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    headers: {
+        "accept": "application/json",
+        "x-requested-with": "xmlhttprequest",
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": `Bearer ${apiKey}`
+    },
+    data: {
+        term: 'Church',
+        location: 'San diego'
+    }
+  }).then(function (res) {
+       console.log(res);
+       console.log(res.businesses[0].name)
+       console.log(res.businesses[0].review_count)
+       console.log(res.businesses[0].image_url)
+       console.log(res.businesses[0].url)
+  });
   
 }  
+
+
 
 
 //input lat&lon
@@ -123,15 +139,29 @@ getYelpBars()
 function getYelpBars() {  
 
 
-$.ajax({
-  url: 'https://api.ipify.org',
-  method: 'GET',
-  dataType: 'JSON',
-})
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
 
-.done(function(yelpdata){
-console.log(yelpdata)
-});
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    headers: {
+        "accept": "application/json",
+        "x-requested-with": "xmlhttprequest",
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": `Bearer ${apiKey}`
+    },
+    data: {
+        term: 'Bar',
+        location: 'San diego'
+    }
+  }).then(function (res) {
+       console.log(res);
+       console.log(res.businesses.length)
+       console.log(res.businesses[0].name)
+       console.log(res.businesses[0].review_count)
+       console.log(res.businesses[0].image_url)
+       console.log(res.businesses[0].url)
+  });
   
 }  
 
@@ -146,23 +176,23 @@ var yelpLon;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //from latlon in yelp
-getWeather()
+// getWeather()
 
-function getWeather() {  
+// function getWeather() {  
 
-$.ajax({
+// $.ajax({
 
-  url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+//   url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
 
-  method: 'GET',
-  dataType: 'JSON',
-})
+//   method: 'GET',
+//   dataType: 'JSON',
+// })
 
-.done(function(weatherdata){
-console.log(weatherdata)
-});
+// .done(function(weatherdata){
+// console.log(weatherdata)
+// });
   
-}  
+// }  
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
