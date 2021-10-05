@@ -1,9 +1,10 @@
 
 
+
+
+
+
 //yelp API    https://api.yelp.com/v3
-
-
-
 
 const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
 const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
@@ -15,21 +16,6 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
 
 
 
-
-
-//This is an object
-//contianing the church search result data
-// var searchRequest1 = {
-//     term:'church',
-//     location: searchQuery
-//   };
-
-//this is an object
-//containing the bars search result data
-// var searchRequest2 = {
-//     term:'bar',
-//     location: searchQuery
-//   };
 // both of these will need to be ran through two seprate fetches
     // both fetches will need to occur after the location is typed in.
         // weather will need to follow suit, however weather NEEDS Longitude and Latitude
@@ -37,14 +23,35 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
                 // this can be a pretty nice shortcut
 
 
-// Geolocation.getCurrentPosition()
+
 
 
 $("#search-button").on("click", function(event) {
     event.preventDefault();
+
+
     var searchValue = $("#search-value").val().trim()
+
+    console.log(searchValue);
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 getIP()
 
@@ -62,9 +69,14 @@ console.log(ip)
   
 }  
 
-getLATLON()
 
-function getLATLON() {  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+getCurrentLATLON()
+
+function getCurrentLATLON() {  
 
 $.ajax({
   url: 'https://api.ipify.org',
@@ -78,9 +90,49 @@ console.log(latlon)
   
 }  
 
-getyelp()
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function getyelp() {  
+getYelpChurches()
+
+function getYelpChurches() {  
+
+$.ajax({
+  url: 'https://api.ipify.org',
+  method: 'GET',
+  dataType: 'JSON',
+})
+
+.done(function(yelpdata){
+console.log(yelpdata)
+});
+  
+}  
+
+
+//input lat&lon
+  //input search query specifying the search radius
+
+//in a radius of 5 miles
+
+    //list of bars
+        //top reivew, or average review for each bar
+      //amount of bars
+
+    //list of churches
+        //top reivew, or average review for each church
+      //amount of churches
+
+
+    //display both of them in separate list
+
+  
+
+getYelpBars()
+
+function getYelpBars() {  
+
 
 $.ajax({
   url: 'https://api.ipify.org',
@@ -96,13 +148,23 @@ console.log(yelpdata)
 
 
 
+//for the weather api
+var yelpLat;
+var yelpLon;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //from latlon in yelp
 getWeather()
 
 function getWeather() {  
 
 $.ajax({
-  url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + _ + "&lon=" + _ + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+
+  url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+
   method: 'GET',
   dataType: 'JSON',
 })
@@ -112,6 +174,19 @@ console.log(weatherdata)
 });
   
 }  
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//append stuff here
+
+function append() {
+
+
+}
+
 
 
 
