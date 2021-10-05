@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #c98af3;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+}
+
+.navbar {
+    display: flex;
+    background-color: #c98af3;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar p {
+    display: flex;
+    flex-direction: flex-start;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar p:hover {
+    background-color: rgb(103, 230, 235);
+    color: black;
+}
+
+.navbar input[type=text] {
+    margin-left: 10px;
+    background-color: #fff;
+    padding: 4px;
+    margin-top: 8px;
+    font-size: 17px;
+    border-radius: 10%;
+}
+
+.navbar .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: transparent;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .search-container button:hover {
+    background: #803bce;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
