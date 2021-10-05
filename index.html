@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Churches VS Bars</title>
 </head>
 <body>
@@ -16,6 +16,18 @@
 
 <!--  Area for Mehdi Safari to work on the header in -->
 <!-- Must contain search and button, and a history dropdown -->
+<div class= "header">
+    <div class="navbar">   
+        <div class="search-container">
+          <form action="/action_page.php">
+            <input id="search-value" type="text" placeholder="Search.." name="search">
+            <button id="search-button" type="submit">
+                <i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+      <p>Find Your Holy Hour</p>
+</div>
 
 
 
@@ -93,12 +105,22 @@
         </div>
 <!-- End of Work area for Erik Gustuson -->
 <!-- Start of work area for Alvaro Frias -->
-        <div id="middleContainer">
+        <div class="middleContainer">
             <div id="resultsBox">
+                <div id="resultsBoxHeader">
+                    <p>Results</p>
+    
+                </div>
+                <div id="scores"></div>
 
             </div>
+        </div>
+        <div class="middleContainer">
             <div id="weatherBox">
+                <div id="weatherBoxHeader">
+                    <p>Weather</p>
 
+                </div>
             </div>
         </div>
 <!-- End of work area for Alvaro Frias -->
