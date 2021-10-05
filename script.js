@@ -10,13 +10,6 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
 
 // var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
-
-
-
-
-
-
-
 //This is an object
 //contianing the church search result data
 // var searchRequest1 = {
