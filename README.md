@@ -41,17 +41,19 @@ End with an example of getting some data out of the system or using it for a lit
 
 * [Jquery]  -   -   -   -   -   -   -(https://jquery.com/)
 * [JqueryUI]    -   -   -   -   -   -(https://jqueryui.com/)
+* [Moment.js]   -   -   -   -   -   -(https://momentjs.com/)
 
 * [MaterializeCSS]  -   -   -   -   -(https://materializecss.com/badges.html)
 * [AnimateCSS]  -   -   -   -   -   -(https://animate.style/)
+* [FontAwesome] -   -   -   -   -   -(https://fontawesome.com/)
 
-
-
+* [ipify]   -   -   -   -   -   -   -(https://www.ipify.org/)
+* [ip-api]  -   -   -   -   -   -   -(https://ip-api.com/)
 * [YelpFusionAPI]   -   -   -   -   -(https://www.yelp.com/fusion)
 * [Open_Weather_Map_One_Call_API]   -(https://openweathermap.org/api/one-call-api)
 
 
-* [Moment.js]   -   -   -   -   -   -(https://momentjs.com/)
+
 
 
 ## Deployed Link
@@ -61,11 +63,6 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Authors
 
-* **Alvaro Frias**
-
-- [Link to Portfolio Site](#)
-- [Link to Github](https://github.com/)
-- [Link to LinkedIn](https://www.linkedin.com/)
 
 * **Erik Gustuson**
 
