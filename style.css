@@ -214,6 +214,9 @@ form {
     height: 75vh;
     align-content: center;
     align-items: center;
+    /* overflow-y: hidden;
+    overflow-x: hidden; 
+    I'ts cool but not really necessary*/
 }
 
 #landing-search-value {
@@ -257,4 +260,13 @@ form {
     padding-bottom: 10px;
     padding: 0px 15px 10px 15px;
     box-shadow: 0px -10px 50px 20px gold;
+}
+
+#landingGEOButton {
+    margin-top: 20px;
+    background-color: lavender;
+    height: 3rem;
+    width: 9rem;
+    border-radius: 10px;
+    box-shadow: 2px 0px 30px 2px goldenrod;
 }
