@@ -115,7 +115,7 @@ function getYelpChurches(searchValue) {
     var churchDiv = document.getElementById("churches")
 
     for (var i = 0; i < res.businesses.length; i++) {
-      var array = [0]
+      // var array = [0]
       var churches = `
       <div class="col s12 m7">
         <div class="card">
@@ -133,7 +133,7 @@ function getYelpChurches(searchValue) {
         </div>
       </div>`
 
-      array.push(churches)
+      // array.push(churches)
       churchDiv.innerHTML = churches
       console.log(res.businesses[i].name)
     }
