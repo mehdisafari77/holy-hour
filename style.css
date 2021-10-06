@@ -1,20 +1,5 @@
 
-#innerBody {
-  width: 100%;
-  display: flex;
-}
 
-#churches {
-  overflow: scroll;
-  width: 300px;
-  height: 600px;
-}
-
-#bars {
-  overflow: scroll;
-  width: 300px;
-  height: 600px;
-}
 
 * {
     box-sizing: border-box;
@@ -156,4 +141,56 @@ form {
 
 
 /* end of middle container styling */
+
+
+
+
+#innerBody {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#churches {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 800px;
+}
+
+#bars {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 800px;
+}
+
+.card-image {
+    flex:1 0 450px;
+    width:700px;
+}
+
+#rightContainer{
+    display:flex;
+    justify-content: center;
+}
+
+#leftContainer {
+    display: flex;
+    justify-content:center;
+}
+
+
+
+
+
+
+
+
 
