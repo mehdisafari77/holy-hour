@@ -123,7 +123,8 @@ function getYelpChurches(searchValue) {
             <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
         </div>
         <div class="card-content church-reviews">
-            <p>Reviews: ${res.businesses[i].review_count}</p>
+          <p>Review Count: ${res.businesses[i].review_count}</p>
+          <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
         </div>
         <div class="card-action church-link">
             <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
@@ -134,6 +135,15 @@ function getYelpChurches(searchValue) {
       churchDiv.innerHTML = churches
       console.log(res.businesses[i].name)
     }
+      // get number of bars displayed on screen
+      var churchDiv = document.getElementById("church-num")
+
+      var churchCount = `
+      <div id="church-num">${res.businesses.length} Churches</div> 
+      `
+      
+      churchDiv.innerHTML = churchCount
+          
   });
 
 }
@@ -174,7 +184,8 @@ function getYelpBars(searchValue) {
                  <span class="card-title">${res.businesses[i].name}</span>
              </div>
              <div class="card-content">
-                 <p>Reviews: ${res.businesses[i].review_count}</p>
+                <p>Review Count: ${res.businesses[i].review_count}</p>
+                <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
              </div>
              <div class="card-action">
                 <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
@@ -186,13 +197,15 @@ function getYelpBars(searchValue) {
       console.log(res.businesses[i].name)
     }
 
-    var barNumberDiv = document.getElementById("bar-num")
+    // get number of bars displayed on screen
+    var barDiv = document.getElementById("bar-num")
 
     var barCount = `
-      <div id="bar-num">${res.businesses.length}</div> 
+    <div id="bar-num">${res.businesses.length} Bars</div> 
     `
-
-    barNumberDiv.innerHTML = barCount
+    
+    barDiv.innerHTML = barCount
+   
   });
 
 }

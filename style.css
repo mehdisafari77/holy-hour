@@ -1,4 +1,4 @@
-
+/* start of dynamically displayed comtent for bars and churches styling */
 #innerBody {
     width: 100%;
     display: flex;
@@ -27,6 +27,23 @@
     height: 300px;
     width: 450px;
 }
+
+p {
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#bar-num {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#church-num {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* end of dynamically displayed comtent for bars and churches styling */
 
 
 main {
@@ -112,13 +129,14 @@ form {
 
 #resultsBox {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     border: 2px dashed #803bce;
     height: 200px;
     width: 330px;
     font-family: 'Courier New', Courier, monospace;
+    align-content: center;
 }
 
 #weatherBox{
@@ -156,7 +174,5 @@ form {
 #weatherBoxHeader p {
     font-size: 22px;
 }
-
-
 /* end of middle container styling */
 
