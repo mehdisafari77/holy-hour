@@ -1,7 +1,10 @@
 
 #innerBody {
-  width: 100%;
-  display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
 }
 
 #churches {
@@ -19,11 +22,7 @@
 * {
     box-sizing: border-box;
 }
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
+
 .card img{
     height: 300px;
     width: 450px;
@@ -102,15 +101,14 @@ form {
 
 .middleContainer {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 300px
-    
+    justify-content: space-around;
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+    
 
 #resultsBox {
     display: flex;

@@ -22,21 +22,21 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 //   };
 
 // both of these will need to be ran through two seprate fetches
-    // both fetches will need to occur after the location is typed in.
-        // weather will need to follow suit, however weather NEEDS Longitude and Latitude
-            // we can borrow that directly from either a bar result or a church result and display the weather of the nearest one
-                // this can be a pretty nice shortcut
+// both fetches will need to occur after the location is typed in.
+// weather will need to follow suit, however weather NEEDS Longitude and Latitude
+// we can borrow that directly from either a bar result or a church result and display the weather of the nearest one
+// this can be a pretty nice shortcut
 
 
-$("#search-button").on("click", function(event) {
-    event.preventDefault();
+$("#search-button").on("click", function (event) {
+  event.preventDefault();
 
 
-    var searchValue = $("#search-value").val().trim()
+  var searchValue = $("#search-value").val().trim()
 
-    console.log(searchValue);
-    getYelpChurches(searchValue)
-    getYelpBars(searchValue)
+  console.log(searchValue);
+  getYelpChurches(searchValue)
+  getYelpBars(searchValue)
 })
 
 
@@ -58,7 +58,7 @@ $("#search-button").on("click", function(event) {
 // .done(function(ip){
 // console.log(ip)
 // });
-  
+
 // }  
 
 
@@ -68,19 +68,19 @@ $("#search-button").on("click", function(event) {
 
 getCurrentLATLON()
 
-function getCurrentLATLON() {  
+function getCurrentLATLON() {
 
-$.ajax({
-  url: 'https://api.ipify.org',
-  method: 'GET',
-  dataType: 'JSON',
-})
+  $.ajax({
+    url: 'https://api.ipify.org',
+    method: 'GET',
+    dataType: 'JSON',
+  })
 
-.done(function(latlon){
-console.log(latlon)
-});
-  
-}  
+    .done(function (latlon) {
+      console.log(latlon)
+    });
+
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +88,7 @@ console.log(latlon)
 
 
 
-function getYelpChurches(searchValue) {  
+function getYelpChurches(searchValue) {
 
   let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
 
@@ -96,26 +96,27 @@ function getYelpChurches(searchValue) {
     url: queryURL,
     method: "GET",
     headers: {
-        "accept": "application/json",
-        "x-requested-with": "xmlhttprequest",
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": `Bearer ${apiKey}`
+      "accept": "application/json",
+      "x-requested-with": "xmlhttprequest",
+      "Access-Control-Allow-Origin": "*",
+      "Authorization": `Bearer ${apiKey}`
     },
     data: {
-        term: 'Church',
-        location: searchValue
+      term: 'Church',
+      location: searchValue
     }
   }).then(function (res) {
-       console.log(res);
-       console.log(res.businesses[0].name)
-       console.log(res.businesses[0].review_count)
-       console.log(res.businesses[0].image_url)
-       console.log(res.businesses[0].url)
+    console.log(res);
+    console.log(res.businesses[0].name)
+    console.log(res.businesses[0].review_count)
+    console.log(res.businesses[0].image_url)
+    console.log(res.businesses[0].url)
 
-      var churchDiv = document.getElementById("churches")
+    var churchDiv = document.getElementById("churches")
 
-      for (var i= 0; i < res.businesses.length; i++)  {
-        var churches = `<div class="col s12 m7">
+    for (var i = 0; i < res.businesses.length; i++) {
+      var churches = `
+        <div class="col s12 m7">
         <div class="card">
         <div class="card-image">
               <img src=${res.businesses[0].image_url}>
@@ -130,14 +131,14 @@ function getYelpChurches(searchValue) {
         </div>
         </div>`
 
-        churchDiv.innerHTML = churches
-        console.log(res.businesses[i].name)
-      }
+      churchDiv.innerHTML = churches
+      console.log(res.businesses[i].name)
+    }
   });
-  
-}  
 
-function getYelpBars(searchValue) {  
+}
+
+function getYelpBars(searchValue) {
 
 
   let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
@@ -146,14 +147,14 @@ function getYelpBars(searchValue) {
     url: queryURL,
     method: "GET",
     headers: {
-        "accept": "application/json",
-        "x-requested-with": "xmlhttprequest",
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": `Bearer ${apiKey}`
+      "accept": "application/json",
+      "x-requested-with": "xmlhttprequest",
+      "Access-Control-Allow-Origin": "*",
+      "Authorization": `Bearer ${apiKey}`
     },
     data: {
-        term: 'Bar',
-        location: searchValue
+      term: 'Bar',
+      location: searchValue
     }
   }).then(function (res) {
     console.log(res);
@@ -162,10 +163,10 @@ function getYelpBars(searchValue) {
     console.log(res.businesses[0].image_url)
     console.log(res.businesses[0].url)
 
-   var barDiv = document.getElementById("bars")
+    var barDiv = document.getElementById("bars")
 
-   for (var i= 0; i < res.businesses.length; i++)  {
-     var bars = `       
+    for (var i = 0; i < res.businesses.length; i++) {
+      var bars = `       
          <div class="col s12 m7">
              <div class="card">
              <div class="card-image">
@@ -181,12 +182,20 @@ function getYelpBars(searchValue) {
              </div>
          </div>`
 
-     barDiv.innerHTML = bars
-     console.log(res.businesses[i].name)
-   }
-});
+      barDiv.innerHTML = bars
+      console.log(res.businesses[i].name)
+    }
 
-}   
+    var barNumberDiv = document.getElementById("bar-num")
+
+    var barCount = `
+      <div id="bar-num">${res.businesses.length}</div> 
+    `
+
+    barNumberDiv.innerHTML = barCount
+  });
+
+}
 
 
 
@@ -214,7 +223,7 @@ var yelpLon;
 // .done(function(weatherdata){
 // console.log(weatherdata)
 // });
-  
+
 // }  
 
 
