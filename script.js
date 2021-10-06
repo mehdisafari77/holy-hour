@@ -1,9 +1,8 @@
 
-
 //yelp API    https://api.yelp.com/v3
-
+getIP();
 const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
-const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
+const geolocationkey = 'da38427041b344778648ff3361640fce'
 
 var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
@@ -50,9 +49,9 @@ $("form").on("click", "button", function (event) {
 
 
 
-  console.log(searchValue);
-  getYelpChurches(searchValue)
-  getYelpBars(searchValue)
+  // console.log(searchValue);
+  // getYelpChurches(searchValue)
+  // getYelpBars(searchValue)
 })
 
 
@@ -61,21 +60,23 @@ $("form").on("click", "button", function (event) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// getIP()
+var ipAddress
 
-// function getIP() {  
+function getIP() {  
 
-// $.ajax({
-//   url: 'https://api.ipify.org',
-//   method: 'GET',
-//   dataType: 'JSON',
-// })
+$.ajax({
+  url: 'https://api.ipify.org',
+  method: 'GET',
+  // dataType: 'JSON',
+})
 
-// .done(function(ip){
-// console.log(ip)
-// });
+.done(function(ip){
+ipAddress = ip
+console.log(ipAddress)
+getCurrentLATLON(ipAddress)
+});
 
-// }  
+}  
 
 
 
@@ -88,13 +89,13 @@ $("form").on("click", "button", function (event) {
 function getCurrentLATLON() {
 
   $.ajax({
-    url: 'https://api.ipify.org',
+    url: 'https://api.ipgeolocation.io/ipgeo?apiKey=' + geolocationkey + '&ip=' + ipAddress,
     method: 'GET',
     dataType: 'JSON',
   })
 
-    .done(function (latlon) {
-      console.log(latlon)
+    .done(function (response) {
+      console.log(response)
     });
 
 }
