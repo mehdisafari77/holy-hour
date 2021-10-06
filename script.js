@@ -101,6 +101,8 @@ function getCurrentLATLON() {
       console.log(response)
       latitude = response.latitude
       longitude =response.longitude
+      console.log(response.latitude)
+      console.log(response.longitude)
     });
 
 }
