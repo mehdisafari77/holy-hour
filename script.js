@@ -115,23 +115,25 @@ function getYelpChurches(searchValue) {
     var churchDiv = document.getElementById("churches")
 
     for (var i = 0; i < res.businesses.length; i++) {
+      var array = []
       var churches = `
-        <div class="col s12 m7">
+      <div class="col s12 m7">
         <div class="card">
-        <div class="card-image">
-              <img src=${res.businesses[i].image_url}>
-            <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+          <div class="card-image">
+                <img src=${res.businesses[i].image_url}>
+              <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+          </div>
+          <div class="card-content church-reviews">
+            <p>Review Count: ${res.businesses[i].review_count}</p>
+            <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
+          </div>
+          <div class="card-action church-link">
+              <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
+          </div>
         </div>
-        <div class="card-content church-reviews">
-          <p>Review Count: ${res.businesses[i].review_count}</p>
-          <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
-        </div>
-        <div class="card-action church-link">
-            <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
-        </div>
-        </div>
-        </div>`
+      </div>`
 
+      array.push(churches)
       churchDiv.innerHTML = churches
       console.log(res.businesses[i].name)
     }
@@ -177,21 +179,21 @@ function getYelpBars(searchValue) {
 
     for (var i = 0; i < res.businesses.length; i++) {
       var bars = `       
-         <div class="col s12 m7">
-             <div class="card">
-             <div class="card-image">
-                 <img src=${res.businesses[i].image_url}>
-                 <span class="card-title">${res.businesses[i].name}</span>
-             </div>
-             <div class="card-content">
-                <p>Review Count: ${res.businesses[i].review_count}</p>
-                <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
-             </div>
-             <div class="card-action">
-                <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
-             </div>
-             </div>
-         </div>`
+      <div class="col s12 m7">
+          <div class="card">
+          <div class="card-image">
+              <img src=${res.businesses[i].image_url}>
+              <span class="card-title">${res.businesses[i].name}</span>
+          </div>
+          <div class="card-content">
+            <p>Review Count: ${res.businesses[i].review_count}</p>
+            <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
+          </div>
+          <div class="card-action">
+            <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
+          </div>
+          </div>
+      </div>`
 
       barDiv.innerHTML = bars
       console.log(res.businesses[i].name)

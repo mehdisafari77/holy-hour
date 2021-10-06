@@ -5,6 +5,7 @@
     justify-content: center;
     flex-direction: row;
     align-content: center;
+    flex-wrap: wrap;
 }
 
 #churches {
@@ -25,7 +26,7 @@
 
 .card img{
     height: 300px;
-    width: 450px;
+    width: 400px;
 }
 
 p {
@@ -48,6 +49,10 @@ p {
 
 main {
     flex: 1 0 auto;
+}
+
+button {
+    background-color: transparent;
 }
 
 /* start of header styling */
