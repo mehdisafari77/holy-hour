@@ -86,6 +86,9 @@ getCurrentLATLON(ipAddress)
 
 // getCurrentLATLON()
 
+var longitude;
+var latitude;
+
 function getCurrentLATLON() {
 
   $.ajax({
@@ -96,6 +99,8 @@ function getCurrentLATLON() {
 
     .done(function (response) {
       console.log(response)
+      latitude = response.latitude
+      longitude =response.longitude
     });
 
 }
