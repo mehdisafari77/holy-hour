@@ -1,4 +1,5 @@
 
+
 //yelp API    https://api.yelp.com/v3
 
 const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
@@ -6,20 +7,7 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
 
 var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
-//This is an object
-//contianing the church search result data
 
-// var searchRequest1 = {
-//     term:'church',
-//     location: searchQuery
-//   };
-
-// //this is an object
-// //containing the bars search result data
-// var searchRequest2 = {
-//     term:'bar',
-//     location: searchQuery
-//   };
 
 // both of these will need to be ran through two seprate fetches
 // both fetches will need to occur after the location is typed in.
@@ -28,11 +16,39 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 // this can be a pretty nice shortcut
 
 
-$("#search-button").on("click", function (event) {
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+$("form").on("click", "button", function (event) {
   event.preventDefault();
 
 
-  var searchValue = $("#search-value").val().trim()
+  //We need to figure out how to get this single event listener
+  //to watch both search bars - - which I sucessfully did
+  //and display the output of the one that has text in it
+  // so that we don't have to have multiple event listeners or duplicate lines of code.
+
+
+  // if($("#landing-search-value1").val().trim(undefined))
+
+  // { var searchValue2 = $("input").val().trim()
+
+  // } else if ($("input").val().trim(undefined)) 
+
+  // { var searchValue1 = $("#landing-search-value1").val().trim()}
+
+
+  if (searchValue !== $("input").val().trim(undefined)) {
+    var searchValue = $("input").val().trim()
+  }
+
+
+  document.getElementById("landingPageContainer").style.display = "none";
+  document.getElementById("outerInnerBody").style.display = "block";
+
+
 
   console.log(searchValue);
   getYelpChurches(searchValue)
@@ -62,11 +78,12 @@ $("#search-button").on("click", function (event) {
 // }  
 
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-getCurrentLATLON()
+// getCurrentLATLON()
 
 function getCurrentLATLON() {
 
@@ -90,7 +107,7 @@ function getCurrentLATLON() {
 
 function getYelpChurches(searchValue) {
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
 
   $.ajax({
     url: queryURL,
@@ -113,39 +130,41 @@ function getYelpChurches(searchValue) {
     console.log(res.businesses[0].url)
 
     var churchDiv = document.getElementById("churches")
-
+    var churchArray = []
+    
     for (var i = 0; i < res.businesses.length; i++) {
-      // var array = [0]
-      var churches = `
-      <div class="col s12 m7">
-        <div class="card">
-          <div class="card-image">
-                <img src=${res.businesses[i].image_url}>
-              <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
-          </div>
-          <div class="card-content church-reviews">
-            <p>Review Count: ${res.businesses[i].review_count}</p>
-            <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
-          </div>
-          <div class="card-action church-link">
-              <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
-          </div>
-        </div>
-      </div>`
 
-      // array.push(churches)
-      churchDiv.innerHTML = churches
-      console.log(res.businesses[i].name)
-    }
-      // get number of bars displayed on screen
-      var churchDiv = document.getElementById("church-num")
+      var church = `
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+                  <img src=${res.businesses[i].image_url}>
+                <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+            </div>
+            <div class="card-content church-reviews">
+              <p>Review Count: ${res.businesses[i].review_count}</p>
+              <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
+            </div>
+            <div class="card-action church-link">
+                <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
+            </div>
+          </div>
+        </div>`
 
+
+      churchArray.push(church)
+      console.log(churchArray)
+      // console.log(res.businesses[i].name)
+    } 
+    churchDiv.innerHTML = churchArray.join(" ")
+    
+    // get number of bars displayed on screen
+    var churchDiv = document.getElementById("church-num")
       var churchCount = `
       <div id="church-num">${res.total} Churches</div> 
       `
-      
-      churchDiv.innerHTML = churchCount
-          
+    churchDiv.innerHTML = churchCount
+
   });
 
 }
@@ -153,7 +172,7 @@ function getYelpChurches(searchValue) {
 function getYelpBars(searchValue) {
 
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
 
   $.ajax({
     url: queryURL,
@@ -175,10 +194,17 @@ function getYelpBars(searchValue) {
     console.log(res.businesses[0].image_url)
     console.log(res.businesses[0].url)
 
+    var yelpLat = res.region.center.latitude
+    var yelpLon = res.region.center.longitude
+  
+    console.log(yelpLon)
+    console.log(yelpLat)
     var barDiv = document.getElementById("bars")
 
+    var barArray = []
+
     for (var i = 0; i < res.businesses.length; i++) {
-      var bars = `       
+      var bar = `       
       <div class="col s12 m7">
           <div class="card">
           <div class="card-image">
@@ -195,9 +221,13 @@ function getYelpBars(searchValue) {
           </div>
       </div>`
 
-      barDiv.innerHTML = bars
+      barArray.push(bar)
+      console.log(barArray)
+      
       console.log(res.businesses[i].name)
     }
+    barDiv.innerHTML = barArray.join(" ")
+
 
     // get number of bars displayed on screen
     var barDiv = document.getElementById("bar-num")
@@ -205,18 +235,18 @@ function getYelpBars(searchValue) {
     var barCount = `
     <div id="bar-num">${res.total} Bars</div> 
     `
-    
+
     barDiv.innerHTML = barCount
-   
+
   });
 
+ 
 }
 
 
 
 //for the weather api
-var yelpLat;
-var yelpLon;
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -227,10 +257,10 @@ var yelpLon;
 
 // function getWeather() {  
 
+
 // $.ajax({
 
 //   url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
-
 //   method: 'GET',
 //   dataType: 'JSON',
 // })
@@ -246,13 +276,12 @@ var yelpLon;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 //append stuff here
 
 function append() {
 
 
 }
-
-
 
 
