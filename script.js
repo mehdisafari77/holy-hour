@@ -107,7 +107,7 @@ function getCurrentLATLON() {
 
 function getYelpChurches(searchValue) {
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
 
   $.ajax({
     url: queryURL,
@@ -132,33 +132,33 @@ function getYelpChurches(searchValue) {
     var churchDiv = document.getElementById("churches")
 
     for (var i = 0; i < res.businesses.length; i++) {
+      var array = [0]
       var churches = `
-        <div class="col s12 m7">
+      <div class="col s12 m7">
         <div class="card">
-        <div class="card-image">
-              <img src=${res.businesses[0].image_url}>
-            <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+          <div class="card-image">
+                <img src=${res.businesses[i].image_url}>
+              <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+          </div>
+          <div class="card-content church-reviews">
+            <p>Review Count: ${res.businesses[i].review_count}</p>
+            <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
+          </div>
+          <div class="card-action church-link">
+              <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
+          </div>
         </div>
-        <div class="card-content church-reviews">
-          <p>Review Count: ${res.businesses[i].review_count}</p>
-          <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
-        </div>
-        <div class="card-action church-link">
-            <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
-        </div>
-        </div>
-        </div>`
+      </div>`
 
+      array.push(churches)
       churchDiv.innerHTML = churches
       console.log(res.businesses[i].name)
     }
     // get number of bars displayed on screen
     var churchDiv = document.getElementById("church-num")
-
-    var churchCount = `
-      <div id="church-num">${res.businesses.length} Churches</div> 
+      var churchCount = `
+      <div id="church-num">${res.total} Churches</div> 
       `
-
     churchDiv.innerHTML = churchCount
 
   });
@@ -168,7 +168,7 @@ function getYelpChurches(searchValue) {
 function getYelpBars(searchValue) {
 
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
 
   $.ajax({
     url: queryURL,
@@ -194,21 +194,21 @@ function getYelpBars(searchValue) {
 
     for (var i = 0; i < res.businesses.length; i++) {
       var bars = `       
-         <div class="col s12 m7">
-             <div class="card">
-             <div class="card-image">
-                 <img src=${res.businesses[0].image_url}>
-                 <span class="card-title">${res.businesses[i].name}</span>
-             </div>
-             <div class="card-content">
-                <p>Review Count: ${res.businesses[i].review_count}</p>
-                <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
-             </div>
-             <div class="card-action">
-                <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
-             </div>
-             </div>
-         </div>`
+      <div class="col s12 m7">
+          <div class="card">
+          <div class="card-image">
+              <img src=${res.businesses[i].image_url}>
+              <span class="card-title">${res.businesses[i].name}</span>
+          </div>
+          <div class="card-content">
+            <p>Review Count: ${res.businesses[i].review_count}</p>
+            <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
+          </div>
+          <div class="card-action">
+            <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
+          </div>
+          </div>
+      </div>`
 
       barDiv.innerHTML = bars
       console.log(res.businesses[i].name)
@@ -218,7 +218,7 @@ function getYelpBars(searchValue) {
     var barDiv = document.getElementById("bar-num")
 
     var barCount = `
-    <div id="bar-num">${res.businesses.length} Bars</div> 
+    <div id="bar-num">${res.total} Bars</div> 
     `
 
     barDiv.innerHTML = barCount
