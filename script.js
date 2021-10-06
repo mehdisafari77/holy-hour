@@ -115,7 +115,7 @@ function getYelpChurches(searchValue) {
     var churchDiv = document.getElementById("churches")
 
     for (var i = 0; i < res.businesses.length; i++) {
-      var array = []
+      var array = [0]
       var churches = `
       <div class="col s12 m7">
         <div class="card">
