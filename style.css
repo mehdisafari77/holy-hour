@@ -1,18 +1,43 @@
-
+/* start of dynamically displayed comtent for bars and churches styling */
+#innerBody {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+}
 
 
 * {
     box-sizing: border-box;
 }
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
-  main {
+.card img{
+    height: 300px;
+    width: 450px;
+}
+
+p {
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#bar-num {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#church-num {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* end of dynamically displayed comtent for bars and churches styling */
+
+
+main {
     flex: 1 0 auto;
-  }
+}
 
 /* start of header styling */
 .header {
@@ -82,25 +107,25 @@ form {
 
 .middleContainer {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 300px
-    
+    justify-content: space-around;
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+    
 
 #resultsBox {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     border: 2px dashed #803bce;
     height: 200px;
     width: 330px;
     font-family: 'Courier New', Courier, monospace;
+    align-content: center;
 }
 
 #weatherBox{
@@ -138,8 +163,6 @@ form {
 #weatherBoxHeader p {
     font-size: 22px;
 }
-
-
 /* end of middle container styling */
 
 
