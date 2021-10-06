@@ -90,7 +90,7 @@ function getCurrentLATLON() {
 
 function getYelpChurches(searchValue) {
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
 
   $.ajax({
     url: queryURL,
@@ -119,7 +119,7 @@ function getYelpChurches(searchValue) {
         <div class="col s12 m7">
         <div class="card">
         <div class="card-image">
-              <img src=${res.businesses[0].image_url}>
+              <img src=${res.businesses[i].image_url}>
             <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
         </div>
         <div class="card-content church-reviews">
@@ -139,7 +139,7 @@ function getYelpChurches(searchValue) {
       var churchDiv = document.getElementById("church-num")
 
       var churchCount = `
-      <div id="church-num">${res.businesses.length} Churches</div> 
+      <div id="church-num">${res.total} Churches</div> 
       `
       
       churchDiv.innerHTML = churchCount
@@ -151,7 +151,7 @@ function getYelpChurches(searchValue) {
 function getYelpBars(searchValue) {
 
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
 
   $.ajax({
     url: queryURL,
@@ -180,7 +180,7 @@ function getYelpBars(searchValue) {
          <div class="col s12 m7">
              <div class="card">
              <div class="card-image">
-                 <img src=${res.businesses[0].image_url}>
+                 <img src=${res.businesses[i].image_url}>
                  <span class="card-title">${res.businesses[i].name}</span>
              </div>
              <div class="card-content">
@@ -201,7 +201,7 @@ function getYelpBars(searchValue) {
     var barDiv = document.getElementById("bar-num")
 
     var barCount = `
-    <div id="bar-num">${res.businesses.length} Bars</div> 
+    <div id="bar-num">${res.total} Bars</div> 
     `
     
     barDiv.innerHTML = barCount
