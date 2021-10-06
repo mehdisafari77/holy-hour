@@ -1,85 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Churches VS Bars</title>
 </head>
+
 <body>
 
 
-<!--  Area for Mehdi Safari to work on the header in -->
-<!-- Must contain search and button, and a history dropdown -->
-<div class= "header">
-    <div class="navbar">   
-        <div class="search-container">
-          <form>
-            <input id="search-value" type="text" placeholder="Search for city.." name="search">
-            <button id="search-button" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-      <p>Find Your Holy Hour</p>
-</div>
-<!-- End of area for Mehdi Safari to work in -->
+    <!--  -->
 
-
-    <div id="innerBody">
-<!--  Start of work area for Erik Gustuson -->
-        <div id="leftContainer">
-            <div id="churches">
-            </div>
+    <div id="landingPageContainer">
+        <div id="landingInnerContainer">
+            <div id="landingTitleBox">
+                <div id="landingTitleWords">
+                    <h3>Holy-Hour</h3>
                 </div>
-            
-<!-- End of Work area for Erik Gustuson -->
-
-<!-- Start of work area for Mehdi Safari -->
-        <div class="middleContainer">
-            <div id="resultsBox">
-                <div id="resultsBoxHeader">
-                    <p>Results</p>
-    
-                </div>
-                <div id="bar-num"></div>
-                <p>VS</p>
-                <div id="church-num"></div>
-
             </div>
-            <div id="weatherBox">
-                <div id="weatherBoxHeader">
-                    <p>Weather</p>
+            <div id="landingFormBox">
+                <div id="landingFormSearch" class="eventListenerBox">
+                    <form action="/action_page.php">
+                        <input id="landing-search-value1" type="text" placeholder=" Search Any City..." name="search">
+                        <button id="landing-search-button" class="searchButton" type="submit">
+                            <i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div id="landingUseLocationOption">
+                    <button id="landingGEOButton" class="geoButton">Or Search Nearby</button>
+                </div>
+            </div>
+            <div id="landingDescriptionBox">
+                <div id="landingDescriptionWords">
+
+                    <p>Come and search thousands of locations to find a Church or Bar for you today!</p>
+                    <p>Decide wether or not to go, with our built in weather display.</p>
+                    <p>So, sit back and relax, or go out to a Church or Bar today,</p>
+                    <p>and enjoy the <em>perks of Religion</em>, or the <em>benefits of Bars</em> your town offers.</p>
+                    <h6>Find your Holy-Hour!</h6>
 
                 </div>
             </div>
         </div>
-
-
-<!-- End of work area for Mehdi Safari -->
-
-<!-- Start of work area for Erik Gustuson -->
-        <div id="rightContainer">
-            <div id="bars">
-            
-                </div>
-            
-<!-- End of work area for Erik Gustuson -->
     </div>
-</div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <div id="outerInnerBody">
+        <div class="header">
+            <div class="navbar">
+                <div class="search-container">
+                    <form>
+                        <input id="search-value" type="text" placeholder="Search for city.." name="search">
+                        <button id="search-button" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <p>Find Your Holy Hour</p>
+        </div>
+        <!-- End of area for Mehdi Safari to work in -->
+
+
+        <div id="innerBody">
+            <!--  Start of work area for Erik Gustuson -->
+            <div id="leftContainer">
+                <div id="churches">
+
+                </div>
+            </div>
+
+            <!-- End of Work area for Erik Gustuson -->
+
+            <!-- Start of work area for Mehdi Safari -->
+            <div class="middleContainer">
+                <div id="resultsBox">
+                    <div id="resultsBoxHeader">
+                        <p>Results</p>
+                    </div>
+                    <div id="bar-num"></div>
+                    <p>VS</p>
+                    <div id="church-num"></div>
+
+                </div>
+                <div id="weatherBox">
+                    <div id="weatherBoxHeader">
+                        <p>Weather</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- End of work area for Mehdi Safari -->
+
+            <!-- Start of work area for Erik Gustuson -->
+            <div id="rightContainer">
+                <div id="bars">
+
+                </div>
+            </div>
+            <!-- End of work area for Erik Gustuson -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="script.js"></script>
 
-    <!-- <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script> -->
+
 </body>
+
 </html>

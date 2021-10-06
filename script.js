@@ -1,4 +1,5 @@
 
+
 //yelp API    https://api.yelp.com/v3
 
 const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
@@ -6,20 +7,7 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
 
 var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
-//This is an object
-//contianing the church search result data
 
-// var searchRequest1 = {
-//     term:'church',
-//     location: searchQuery
-//   };
-
-// //this is an object
-// //containing the bars search result data
-// var searchRequest2 = {
-//     term:'bar',
-//     location: searchQuery
-//   };
 
 // both of these will need to be ran through two seprate fetches
 // both fetches will need to occur after the location is typed in.
@@ -28,11 +16,39 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 // this can be a pretty nice shortcut
 
 
-$("#search-button").on("click", function (event) {
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+$("form").on("click", "button", function (event) {
   event.preventDefault();
 
 
-  var searchValue = $("#search-value").val().trim()
+  //We need to figure out how to get this single event listener
+  //to watch both search bars - - which I sucessfully did
+  //and display the output of the one that has text in it
+  // so that we don't have to have multiple event listeners or duplicate lines of code.
+
+
+  // if($("#landing-search-value1").val().trim(undefined))
+
+  // { var searchValue2 = $("input").val().trim()
+
+  // } else if ($("input").val().trim(undefined)) 
+
+  // { var searchValue1 = $("#landing-search-value1").val().trim()}
+
+
+  if (searchValue !== $("input").val().trim(undefined)) {
+    var searchValue = $("input").val().trim()
+  }
+
+
+  document.getElementById("landingPageContainer").style.display = "none";
+  document.getElementById("outerInnerBody").style.display = "block";
+
+
 
   console.log(searchValue);
   getYelpChurches(searchValue)
@@ -62,11 +78,12 @@ $("#search-button").on("click", function (event) {
 // }  
 
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-getCurrentLATLON()
+// getCurrentLATLON()
 
 function getCurrentLATLON() {
 
@@ -137,15 +154,13 @@ function getYelpChurches(searchValue) {
       churchDiv.innerHTML = churches
       console.log(res.businesses[i].name)
     }
-      // get number of bars displayed on screen
-      var churchDiv = document.getElementById("church-num")
-
+    // get number of bars displayed on screen
+    var churchDiv = document.getElementById("church-num")
       var churchCount = `
       <div id="church-num">${res.total} Churches</div> 
       `
-      
-      churchDiv.innerHTML = churchCount
-          
+    churchDiv.innerHTML = churchCount
+
   });
 
 }
@@ -205,9 +220,9 @@ function getYelpBars(searchValue) {
     var barCount = `
     <div id="bar-num">${res.total} Bars</div> 
     `
-    
+
     barDiv.innerHTML = barCount
-   
+
   });
 
 }
@@ -227,10 +242,10 @@ var yelpLon;
 
 // function getWeather() {  
 
+
 // $.ajax({
 
 //   url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
-
 //   method: 'GET',
 //   dataType: 'JSON',
 // })
@@ -246,13 +261,12 @@ var yelpLon;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 //append stuff here
 
 function append() {
 
 
 }
-
-
 
 
