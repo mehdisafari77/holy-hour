@@ -25,6 +25,12 @@ $("form").on("click", "button", function(event) {
     event.preventDefault();
 
 
+    //We need to figure out how to get this single event listener
+    //to watch both search bars - - which I sucessfully did
+    //and display the output of the one that has text in it
+    // so that we don't have to have multiple event listeners or duplicate lines of code.
+
+
     // if($("#landing-search-value1").val().trim(undefined))
 
     // { var searchValue2 = $("input").val().trim()
@@ -32,17 +38,20 @@ $("form").on("click", "button", function(event) {
     // } else if ($("input").val().trim(undefined)) 
 
     // { var searchValue1 = $("#landing-search-value1").val().trim()}
+
+
     if (searchValue !== $("input").val().trim(undefined)) {
     var searchValue = $("input").val().trim() }
-    // console.log(searchValue1)
-    console.log(searchValue)
+
 
     document.getElementById("landingPageContainer").style.display = "none";
     document.getElementById("outerInnerBody").style.display = "block";
-    // console.log(searchValue);
+
+
+
     console.log(searchValue);
-  getYelpChurches(searchValue)
-  getYelpBars(searchValue)
+    getYelpChurches(searchValue)
+    getYelpBars(searchValue)
 })
 
 
