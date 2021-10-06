@@ -26,13 +26,23 @@ const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
 
 
 
-$("#search-button").on("click", function(event) {
+$("form").on("click", $(".searchButton"), function(event) {
     event.preventDefault();
 
 
-    var searchValue = $("#search-value").val().trim()
+    // if($("#landing-search-value1").val().trim(undefined))
 
-    console.log(searchValue);
+    // { var searchValue2 = $("input").val().trim()
+
+    // } else if ($("input").val().trim(undefined)) 
+
+    // { var searchValue1 = $("#landing-search-value1").val().trim()}
+    if (searchValue2 !== $("input").val().trim(undefined)) {
+    var searchValue2 = $("input").val().trim() }
+    // console.log(searchValue1)
+    console.log(searchValue2)
+
+    // console.log(searchValue);
 })
 
 
