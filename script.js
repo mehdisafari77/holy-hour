@@ -21,11 +21,34 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$("#search-button").on("click", function (event) {
+$("form").on("click", "button", function (event) {
   event.preventDefault();
 
 
-  var searchValue = $("#search-value").val().trim()
+  //We need to figure out how to get this single event listener
+  //to watch both search bars - - which I sucessfully did
+  //and display the output of the one that has text in it
+  // so that we don't have to have multiple event listeners or duplicate lines of code.
+
+
+  // if($("#landing-search-value1").val().trim(undefined))
+
+  // { var searchValue2 = $("input").val().trim()
+
+  // } else if ($("input").val().trim(undefined)) 
+
+  // { var searchValue1 = $("#landing-search-value1").val().trim()}
+
+
+  if (searchValue !== $("input").val().trim(undefined)) {
+    var searchValue = $("input").val().trim()
+  }
+
+
+  document.getElementById("landingPageContainer").style.display = "none";
+  document.getElementById("outerInnerBody").style.display = "block";
+
+
 
   console.log(searchValue);
   getYelpChurches(searchValue)
@@ -60,7 +83,7 @@ $("#search-button").on("click", function (event) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-getCurrentLATLON()
+// getCurrentLATLON()
 
 function getCurrentLATLON() {
 
@@ -129,15 +152,15 @@ function getYelpChurches(searchValue) {
       churchDiv.innerHTML = churches
       console.log(res.businesses[i].name)
     }
-      // get number of bars displayed on screen
-      var churchDiv = document.getElementById("church-num")
+    // get number of bars displayed on screen
+    var churchDiv = document.getElementById("church-num")
 
-      var churchCount = `
+    var churchCount = `
       <div id="church-num">${res.businesses.length} Churches</div> 
       `
-      
-      churchDiv.innerHTML = churchCount
-          
+
+    churchDiv.innerHTML = churchCount
+
   });
 
 }
@@ -197,9 +220,9 @@ function getYelpBars(searchValue) {
     var barCount = `
     <div id="bar-num">${res.businesses.length} Bars</div> 
     `
-    
+
     barDiv.innerHTML = barCount
-   
+
   });
 
 }
