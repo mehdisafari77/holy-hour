@@ -9,6 +9,7 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
 
 
+
 // both of these will need to be ran through two seprate fetches
 // both fetches will need to occur after the location is typed in.
 // weather will need to follow suit, however weather NEEDS Longitude and Latitude
@@ -89,6 +90,18 @@ fifthCityClick.addEventListener("click", function (event) {
 var searchValue;
 
 
+vex.dialog.confirm({
+  message: "You need to enable CORS for this site. Click 'OK' to go now",
+  callback: function (value) {
+    if (value) {
+        console.log("LETS GO")
+        window.open("https://cors-anywhere.herokuapp.com/corsdemo");
+    } else {
+        console.log("No, thankyou...")
+    }
+}
+})
+
 
 $("form").on("click", "#search-button", function (event) {
   event.preventDefault();
@@ -124,7 +137,7 @@ $("#landingGEOButton").on("click", function (event) {
 
 document.getElementById("landingPageContainer").style.display = "none";
 document.getElementById("outerInnerBody").style.display = "block";
-
+showCity();
 })
 $("#mGEOButton").on("click", function (event) {
   event.preventDefault();
@@ -396,19 +409,12 @@ function getYelpChurches(searchValue) {
       "accept": "application/json",
       "x-requested-with": "xmlhttprequest",
       "Access-Control-Allow-Origin": "*",
-      "Authorization": `Bearer ${apiKey}`,
-
-
-
-//we do need an error slip up somewhere around here
-
-
-
-    },
+      "Authorization": `Bearer ${apiKey}`},
     data: {
       term: 'Church',
       location: searchValue
-    }
+    },
+    error: function(req) {vex.dialog.alert('Invalid Search Entry. Please Keep it to City or Town names. Thank you.')}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   }).then(function (res) {
     $("#currentIcon").remove();
@@ -457,6 +463,7 @@ function getYelpChurches(searchValue) {
       <div id="church-num">${res.total} Churches</div> 
       `
     churchDiv.innerHTML = churchCount;
+
       document.getElementById("landingPageContainer").style.display = "none";
       document.getElementById("outerInnerBody").style.display = "block";
   });

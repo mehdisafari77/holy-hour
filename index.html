@@ -11,7 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <!-- Google Fonts -->
-
+    <!--    Vex, for allert prompts -->
+    <script src="vex.combined.min.js"></script>
+    <script>vex.defaultOptions.className = 'vex-theme-os'</script>
+    <link rel="stylesheet" href="vex.css" />
+    <link rel="stylesheet" href="vex-theme-os.css" />
+    
+    <!--    Vex, for allert prompts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
@@ -71,9 +77,9 @@
                         <li><a id="fourth-city" href="#!">keep searching</a></li>
                         <li><a id="fifth-city" href="#!">keep searching</a></li>
                       </ul>
-                      <nav>
+                      <nav id="historyButton">
                         <div class="nav-wrapper">
-                          <ul class="right hide-on-med-and-down">
+                          <ul class="right">
                             <!-- Dropdown Trigger -->
                             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">History<i class="material-icons right"></i></a></li>
                           </ul>
@@ -175,6 +181,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="script.js"></script>
+
 
 
 </body>
