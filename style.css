@@ -133,16 +133,19 @@ form {
     align-content: center;
 }
 
-#weatherBox{
+#weatherBox {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-evenly;
     border: 2px dashed #803bce;
     height: 200px;
     width: 330px;
     font-family: 'Courier New', Courier, monospace;
+    align-content: center;
+    flex-wrap: wrap;
 }
+
 #resultsBoxHeader {
     display: flex;
     flex-direction: row;
@@ -170,7 +173,9 @@ form {
 }
 
 #weatherInfo {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 /* end of middle container styling */
 
