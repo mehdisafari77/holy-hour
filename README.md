@@ -41,10 +41,10 @@ End with an example of getting some data out of the system or using it for a lit
 
 * [Jquery]  -   -   -   -   -   -   -(https://jquery.com/)
 * [JqueryUI]    -   -   -   -   -   -(https://jqueryui.com/)
-* [Moment.js]   -   -   -   -   -   -(https://momentjs.com/)
+<!-- * [Moment.js]   -   -   -   -   -   -(https://momentjs.com/) -->
 
 * [MaterializeCSS]  -   -   -   -   -(https://materializecss.com/badges.html)
-* [AnimateCSS]  -   -   -   -   -   -(https://animate.style/)
+<!-- * [AnimateCSS]  -   -   -   -   -   -(https://animate.style/) -->
 * [FontAwesome] -   -   -   -   -   -(https://fontawesome.com/)
 
 * [ipify]   -   -   -   -   -   -   -(https://www.ipify.org/)

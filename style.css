@@ -1,16 +1,18 @@
 /* start of dynamically displayed comtent for bars and churches styling */
+
+/* * {
+    box-sizing: border-box;
+} */
+
 #innerBody {
     width: 100%;
     display: flex;
+    position: relative;
+    left: -7.9%;
     justify-content: center;
     flex-direction: row;
     align-content: center;
     flex-wrap: nowrap;
-}
-
-
-* {
-    box-sizing: border-box;
 }
 
 .card img{
@@ -374,18 +376,162 @@ form {
 
 
 
-@media only screen and (max-width: 1180px) {
+@media only screen and (max-width: 1350px) {
     body {
       background-color: lightblue;
+      display:flex;
       /* Just keeping this un-hidden as a reminder */
     }
+    #innerBody {
+        display:flex;
+        flex-shrink: 3;
+    }
+    .middleContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 250px;
+        margin-left: 200px;
+        margin-right: 200px;
+        order:5;
+        flex-shrink: 3;
+    }
+    #weatherBox {
+        display:flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+        align-content:center;
+        justify-content:center;
+        align-items:flex-start;
+    }
+
+    #leftContainer {
+        /* display: flex; */
+        position: relative;
+        /* left: -50px; */
+        width: 45%;
+        /* float:left; */
+        justify-content:center;
+        order:6;
+        flex-direction: column;
+        /* margin-right:10px; */
+        flex-shrink: 3;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        justify-content: space-around;
+        background-color: #c98af3;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 22px;
+        align-content: stretch;
+        flex-wrap: wrap;
+    }
+
+    #rightContainer {
+    /* display: flex; */
+    position: relative;
+    right: 40px;
+    width: 45%;
+    /* float:right; */
+    justify-content:center;
+    order:7;
+    flex-direction: column;
+    /* margin-left:10px; */
+    /* margin-right:5px; */
+    flex-shrink: 3;
+}
+    .card {
+        flex-direction: column;
+        display:flex;
+        justify-content: center;
+        text-align: center;
+        flex-shrink: 3;
+    }
+    /* .card-image{
+        display:flex;
+        width: 100%;
+        height: 100%;
+        flex: 0 1 300px;
+    } */
+
+    .card .card-image img {
+        display: block;
+        border-radius: 2px 2px 0 0;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 90%;
+        flex-shrink: 3;
+    }
+    .card-image {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 10%;
+        width: 400px;
+
+    }
+    .card-title {
+        position:relative !important;
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+
+    #innerBody {
+        /* width: 100%; */
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        /* align-content: center; */
+        flex-wrap: wrap;
+    }
+    /* #churches { */
+        /* overflow-y: scroll; */
+        /* overflow-x: hidden; */
+        /* display: block; */
+        /* flex-wrap: wrap; */
+        /* justify-content: center; */
+        /* width: 36.2%; */
+        /* height: 800px; */
+    /* } */
+    /* #bars { */
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
+    /* display: block; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* width: 36.2%; */
+    /* height: 800px; */
+    /* } */
+    /* .card {
+        display: flex;
+        flex-wrap: wrap;
+        height: 200px;
+        width: 200px;
+    } */
     /* .card-image {
         display: flex;
         flex-wrap: wrap;
         height: 200px;
-        width: 200px; */
-    }
+        width: 200px;
+    } */
 
 
 
-  /* } */
+
+
+
+
+}
+
+
+
+  
