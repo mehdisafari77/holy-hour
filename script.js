@@ -22,14 +22,25 @@ var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
 $(".dropdown-trigger").dropdown();
 
-var allCities;
+var allCities = JSON.parse(localStorage.getItem("saved-city")) || [];
 
 function saveCity() {
-  allCities.unshift(searchValue.value);
-  showCity();
+  allCities.unshift(searchValue);
+  showCity(searchValue);
   localStorage.setItem("saved-city", JSON.stringify(allCities));
 }
 
+function showCity() {
+  if (allCities.length > 5) {
+    allCities.pop();
+  }
+  console.log(allCities);
+  // document.getElementById("first-city").innerHTML = allCities[0];
+  // document.getElementById("second-city").innerHTML = allCities[1];
+  // document.getElementById("third-city").innerHTML = allCities[2];
+  // document.getElementById("fourth-city").innerHTML = allCities[3];
+  // document.getElementById("fourth-city").innerHTML = allCities[4];
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +58,7 @@ $("form").on("click", "#search-button", function (event) {
   console.log(searchValue);
   getYelpChurches(searchValue);
   getYelpBars(searchValue);
+  saveCity(searchValue);
 })
 
 $("form").on("click", "#landing-search-button", function (event) {
@@ -54,10 +66,10 @@ $("form").on("click", "#landing-search-button", function (event) {
 
 
   searchValue = $("#landing-search-value1").val().trim();
-
   console.log(searchValue);
   getYelpChurches(searchValue);
   getYelpBars(searchValue);
+  saveCity(searchValue);
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
