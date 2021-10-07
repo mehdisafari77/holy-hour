@@ -24,27 +24,27 @@ var searchValue;
 
 
 
-// $("#search-value").on("click", "button", function (event) {
-//   event.preventDefault();
+$("form").on("click", "#search-button", function (event) {
+  event.preventDefault();
 
 
-  // searchValue = $("#search-value").val().trim();
+  searchValue = $("#search-value").val().trim();
 
-  // console.log(searchValue);
-  // getYelpChurches(searchValue);
-  // getYelpBars(searchValue);
-// })
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+})
 
-// $("#landing-search-value1").on("click", "button", function (event) {
-//   event.preventDefault();
+$("form").on("click", "#landing-search-button", function (event) {
+  event.preventDefault();
 
 
-//   searchValue = $("#landing-search-value1").val().trim();
+  searchValue = $("#landing-search-value1").val().trim();
 
-//   console.log(searchValue);
-//   getYelpChurches(searchValue);
-//   getYelpBars(searchValue);
-// })
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+})
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,6 +57,14 @@ $("#landingGEOButton").on("click", function (event) {
 
 document.getElementById("landingPageContainer").style.display = "none";
 document.getElementById("outerInnerBody").style.display = "block";
+
+})
+$("#mGEOButton").on("click", function (event) {
+  event.preventDefault();
+
+document.getElementById("landingPageContainer").style.display = "none";
+document.getElementById("outerInnerBody").style.display = "block";
+getIP()
 })
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,14 +116,13 @@ function getCurrentLATLON() {
       geolongitude = response.longitude;
       console.log("this is response lat", response.latitude)
       console.log(response.longitude)
-      // mathLatitude = geolatitude;
-      // mathLongitude = geolongitude;
+
+      
       getGeoWeather(geolongitude, geolatitude);
       getYelpGEOChurches(geolatitude, geolongitude);
       getYelpGEOBars(geolatitude, geolongitude);
 
     });
-  // I had an error and i totally messed it up trying to fix it and basically, I did a ton of work literally just to end up at the same point lmao
 
 
 }
@@ -127,6 +134,8 @@ function getCurrentLATLON() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function getGeoWeather() {
   console.log("geoweather");
+  $("#currentIcon").remove();
+  $("#currentIcon").remove();
   // console.log(mathLatitude, mathLongitude);
   // var okay = mathLatitude;
   // var oman = mathLongitude;
@@ -312,7 +321,7 @@ function getYelpGEOBars(geolatitude, geolongitude) {
 function getYelpChurches(searchValue) {
 
   let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -322,15 +331,22 @@ function getYelpChurches(searchValue) {
       "Access-Control-Allow-Origin": "*",
       "Authorization": `Bearer ${apiKey}`,
 
-      // error: function() {console.log("Bad Request")},
-      //i don't think this works, but we do need an error slip up
+
+
+//we do need an error slip up somewhere around here
+
+
+
     },
     data: {
       term: 'Church',
       location: searchValue
     }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
   }).then(function (res) {
+    $("#currentIcon").remove();
+    $("#currentIcon").remove();
+    //easy way to clear weather icon to prevent duplicates from stacking up
     // console.log(res);
     // console.log(res.businesses[0].name)
     // console.log(res.businesses[0].review_count)
@@ -373,11 +389,11 @@ function getYelpChurches(searchValue) {
     var churchCount = `
       <div id="church-num">${res.total} Churches</div> 
       `
-    churchDiv.innerHTML = churchCount
-
-  });
+    churchDiv.innerHTML = churchCount;
       document.getElementById("landingPageContainer").style.display = "none";
       document.getElementById("outerInnerBody").style.display = "block";
+  });
+
 }
 
 var yelpLon;
@@ -452,6 +468,7 @@ function getYelpBars(searchValue) {
 
     barDiv.innerHTML = barCount
 
+    getWeather(yelpLat, yelpLon)
   });
 
 
@@ -467,24 +484,47 @@ function getYelpBars(searchValue) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // from latlon in yelp
-// getWeather()
 
-function getWeather() {
+
+// function getWeather() {
+
+
+//   $.ajax({
+
+//     url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+//     method: 'GET',
+//     dataType: 'JSON',
+//   })
+
+//     .done(function (weatherdata) {
+//       console.log(weatherdata)
+//     });
+
+// }
+function getWeather(yelpLat, yelpLon) {
+//   console.log("Getting Yelp Weather");
+//   // console.log(mathLatitude, mathLongitude);
+//   // var okay = mathLatitude;
+//   // var oman = mathLongitude;
 
 
   $.ajax({
 
-    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon +
+      "&exclude=minutely,hourly,alerts&units=imperial&appid=bcf0f3e083d40c7832b737bfb3c1e368",
     method: 'GET',
     dataType: 'JSON',
   })
 
-    .done(function (weatherdata) {
-      console.log(weatherdata)
+    .done(function (weatherData) {
+      console.log(weatherData);
+      var icon = "https://openweathermap.org/img/wn/" + weatherData.current.weather[0].icon + "@2x.png";
+      $("#weatherInfo").append("<img id='currentIcon' src='http://openweathermap.org/img/wn/04n@2x.png' alt='icon of current weather'>");
+      $(currentIcon).attr('srv', icon);
+      $("#weatherHigh").text(weatherData.daily[0].temp.max);
+      $("#weatherLow").text(weatherData.daily[0].temp.min);
     });
-
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
