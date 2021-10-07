@@ -35,11 +35,11 @@ function showCity() {
     allCities.pop();
   }
   console.log(allCities);
-  // document.getElementById("first-city").innerHTML = allCities[0];
-  // document.getElementById("second-city").innerHTML = allCities[1];
-  // document.getElementById("third-city").innerHTML = allCities[2];
-  // document.getElementById("fourth-city").innerHTML = allCities[3];
-  // document.getElementById("fourth-city").innerHTML = allCities[4];
+  document.getElementById("first-city").innerHTML = allCities[0];
+  document.getElementById("second-city").innerHTML = allCities[1];
+  document.getElementById("third-city").innerHTML = allCities[2];
+  document.getElementById("fourth-city").innerHTML = allCities[3];
+  document.getElementById("fifth-city").innerHTML = allCities[4];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
