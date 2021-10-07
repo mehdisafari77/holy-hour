@@ -5,7 +5,7 @@
     justify-content: center;
     flex-direction: row;
     align-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 
@@ -20,17 +20,17 @@
 
 p {
     font-size: 22px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #bar-num {
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #church-num {
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 /* end of dynamically displayed comtent for bars and churches styling */
@@ -42,6 +42,7 @@ main {
 
 button {
     background-color: transparent;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 /* start of header styling */
@@ -51,14 +52,14 @@ button {
     align-items: center;
     justify-content: space-around;
     background-color: #c98af3;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;    
     font-size: 22px;
 }
 
 .navbar {
     display: flex;
     background-color: #c98af3;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .navbar p {
@@ -129,7 +130,7 @@ form {
     border: 2px dashed #803bce;
     height: 200px;
     width: 330px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;
     align-content: center;
 }
 
@@ -141,7 +142,7 @@ form {
     border: 2px dashed #803bce;
     height: 200px;
     width: 330px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Josefin Sans', sans-serif;
 }
 #resultsBoxHeader {
     display: flex;
@@ -171,14 +172,6 @@ form {
 /* end of middle container styling */
 
 
-
-
-#innerBody {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 #churches {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -200,8 +193,10 @@ form {
 }
 
 .card-image {
-    flex:1 0 450px;
-    width:700px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    width: 300px;
 }
 
 #rightContainer{

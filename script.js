@@ -107,7 +107,7 @@ function getCurrentLATLON() {
 
 function getYelpChurches(searchValue) {
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
 
   $.ajax({
     url: queryURL,
@@ -130,30 +130,34 @@ function getYelpChurches(searchValue) {
     console.log(res.businesses[0].url)
 
     var churchDiv = document.getElementById("churches")
-
+    var churchArray = []
+    
     for (var i = 0; i < res.businesses.length; i++) {
-      var array = [0]
-      var churches = `
-      <div class="col s12 m7">
-        <div class="card">
-          <div class="card-image">
-                <img src=${res.businesses[i].image_url}>
-              <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
-          </div>
-          <div class="card-content church-reviews">
-            <p>Review Count: ${res.businesses[i].review_count}</p>
-            <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
-          </div>
-          <div class="card-action church-link">
-              <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
-          </div>
-        </div>
-      </div>`
 
-      array.push(churches)
-      churchDiv.innerHTML = churches
-      console.log(res.businesses[i].name)
-    }
+      var church = `
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+                  <img src=${res.businesses[i].image_url}>
+                <span class="card-title" id= "church-name">${res.businesses[i].name}</span>
+            </div>
+            <div class="card-content church-reviews">
+              <p>Review Count: ${res.businesses[i].review_count}</p>
+              <p class="review-number">Rating: ${res.businesses[i].rating}/5</p> 
+            </div>
+            <div class="card-action church-link">
+                <button><a href=${res.businesses[i].url} target="_blank">Visit Website</a></button>
+            </div>
+          </div>
+        </div>`
+
+
+      churchArray.push(church)
+      console.log(churchArray)
+      // console.log(res.businesses[i].name)
+    } 
+    churchDiv.innerHTML = churchArray.join(" ")
+    
     // get number of bars displayed on screen
     var churchDiv = document.getElementById("church-num")
       var churchCount = `
@@ -168,7 +172,7 @@ function getYelpChurches(searchValue) {
 function getYelpBars(searchValue) {
 
 
-  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50&offset=80";
+  let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
 
   $.ajax({
     url: queryURL,
@@ -190,10 +194,17 @@ function getYelpBars(searchValue) {
     console.log(res.businesses[0].image_url)
     console.log(res.businesses[0].url)
 
+    var yelpLat = res.region.center.latitude
+    var yelpLon = res.region.center.longitude
+  
+    console.log(yelpLon)
+    console.log(yelpLat)
     var barDiv = document.getElementById("bars")
 
+    var barArray = []
+
     for (var i = 0; i < res.businesses.length; i++) {
-      var bars = `       
+      var bar = `       
       <div class="col s12 m7">
           <div class="card">
           <div class="card-image">
@@ -210,9 +221,13 @@ function getYelpBars(searchValue) {
           </div>
       </div>`
 
-      barDiv.innerHTML = bars
+      barArray.push(bar)
+      console.log(barArray)
+      
       console.log(res.businesses[i].name)
     }
+    barDiv.innerHTML = barArray.join(" ")
+
 
     // get number of bars displayed on screen
     var barDiv = document.getElementById("bar-num")
@@ -225,13 +240,13 @@ function getYelpBars(searchValue) {
 
   });
 
+ 
 }
 
 
 
 //for the weather api
-var yelpLat;
-var yelpLon;
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
