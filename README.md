@@ -1,56 +1,28 @@
 # holy-hour
 
-One paragraph of project description goes here.
+A site to compare the amount of bars and the amout of churches a town or city has, within a 5 mile radius.
+See review count as well as location rating, and get currently updated weather for that locatoin.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development environment running.
-
-Say what the step will be:
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 
 ## Built With
 
-* [HTML]-   -   -   -   -   -   -   -(https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [CSS] -   -   -   -   -   -   -   -(https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Javascript]  -   -   -   -   -   -(https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-* [Jquery]  -   -   -   -   -   -   -(https://jquery.com/)
-* [JqueryUI]    -   -   -   -   -   -(https://jqueryui.com/)
-<!-- * [Moment.js]   -   -   -   -   -   -(https://momentjs.com/) -->
+* [Jquery](https://jquery.com/)
+* [JqueryUI](https://jqueryui.com/)
 
-* [MaterializeCSS]  -   -   -   -   -(https://materializecss.com/badges.html)
-<!-- * [AnimateCSS]  -   -   -   -   -   -(https://animate.style/) -->
-* [FontAwesome] -   -   -   -   -   -(https://fontawesome.com/)
+* [VEX](https://github.com/HubSpot/vex)
 
-* [ipify]   -   -   -   -   -   -   -(https://www.ipify.org/)
-* [ip-api]  -   -   -   -   -   -   -(https://ip-api.com/)
-* [YelpFusionAPI]   -   -   -   -   -(https://www.yelp.com/fusion)
-* [Open_Weather_Map_One_Call_API]   -(https://openweathermap.org/api/one-call-api)
+* [MaterializeCSS](https://materializecss.com/badges.html)
+* [FontAwesome](https://fontawesome.com/)
+
+* [ipify](https://www.ipify.org/)
+* [ip-api](https://ip-api.com/)
+* [YelpFusionAPI](https://www.yelp.com/fusion)
+* [Open_Weather_Map_One_Call_API](https://openweathermap.org/api/one-call-api)
 
 
 
@@ -66,28 +38,28 @@ End with an example of getting some data out of the system or using it for a lit
 
 * **Erik Gustuson**
 
-- [Link to Portfolio Site](#)
-- [Link to Github](https://github.com/)
-- [Link to LinkedIn](https://www.linkedin.com/)
+- [Link to Portfolio Site](https://erikgustuson.github.io/basic-portfolio/)
+- [Link to Github](https://github.com/ErikGustuson)
+- [Link to LinkedIn](https://www.linkedin.com/in/erik-gustuson/)
 
 * **May Faucher** 
 
 - [Link to Portfolio Site](https://divinemayura.github.io/)
 - [Link to Github](https://github.com/DivineMayura)
-- [Link to LinkedIn](www.linkedin.com/in/mayfaucher)
+- [Link to LinkedIn](https://www.linkedin.com/in/mayfaucher)
 
 * **Mehdi Safari**
 
-- [Link to Portfolio Site](#)
-- [Link to Github](https://github.com/)
-- [Link to LinkedIn](https://www.linkedin.com/)
+- [Link to Portfolio Site](https://mehdisafari77.github.io/Basic-Bio/)
+- [Link to Github](https://github.com/mehdisafari77)
+- [Link to LinkedIn](https://www.linkedin.com/in/mehdi-safari-992799142/)
 
 
 ## License
 
 This project is licensed under the MIT License 
 
-## Image of Site:
+<!-- ## Image of Site: -->
 
 
 
