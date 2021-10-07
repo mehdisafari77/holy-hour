@@ -128,8 +128,13 @@ function getWeather() {
   })
   
   .done(function(weatherdata){
-  console.log(weatherdata)
-
+  console.log(weatherdata);
+  var icon =
+      "http://openweathermap.org/img/wn/" +
+      weatherdata.current.weather[0].icon +
+      "@2x.png";
+      $("#weatherInfo").append("<img id='currentIcon' src='http://openweathermap.org/img/wn/04n@2x.png' alt='icon of current weather'>");
+    $(currentIcon).attr('srv', icon);
   });
   
   } 
