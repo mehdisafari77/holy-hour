@@ -37,7 +37,7 @@
             <div id="landingFormBox">
                 <div id="landingFormSearch" class="eventListenerBox">
                     <form action="/action_page.php">
-                        <input id="landing-search-value1" type="text" placeholder=" Search Any City..." name="search">
+                        <input id="landing-search-value1"  class="search2" type="text" placeholder=" Search Any City..." name="search">
                         <button id="landing-search-button" class="searchButton" type="submit">
                             <i class="fa fa-search"></i></button>
                     </form>
@@ -65,11 +65,14 @@
             <div class="navbar">
                 <div class="search-container">
                     <form>
-                        <input id="search-value" type="text" placeholder="Search for city.." name="search">
+                        <input id="search-value" class="search2" type="text" placeholder="Search for city.." name="search">
                         <button id="search-button" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </form>
+                    <div id="landingUseLocationOption">
+                        <button id="mGEOButton" class="geoButton styleIdButton">Or Search Nearby</button>
+                    </div>
                 </div>
             </div>
             <p>Find Your Holy Hour</p>
@@ -103,7 +106,15 @@
                         <p>Weather</p>
                     </div>
                     <div id="weatherInfo">
-
+                        <div>
+                            <img id='currentIcon' alt='icon of current weather'>
+                        </div>
+                        <div>
+                            <p>High: <br/><span id="weatherHigh"></span></p>
+                        </div>
+                        <div>
+                            <p>Low: <br/><span id="weatherLow"></span></p>
+                        </div>
                     </div>
                 </div>
             </div>
