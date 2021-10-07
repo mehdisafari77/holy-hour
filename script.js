@@ -117,7 +117,7 @@ function getCurrentLATLON() {
       console.log("this is response lat", response.latitude)
       console.log(response.longitude)
 
-      
+
       getGeoWeather(geolongitude, geolatitude);
       getYelpGEOChurches(geolatitude, geolongitude);
       getYelpGEOBars(geolatitude, geolongitude);
