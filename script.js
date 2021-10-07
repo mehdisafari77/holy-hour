@@ -1,9 +1,10 @@
 
-//yelp API    https://api.yelp.com/v3
-getIP();
-const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
-const geolocationkey = 'da38427041b344778648ff3361640fce'
 
+//yelp API    https://api.yelp.com/v3
+
+const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
+// const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
+const geolocationkey = 'da38427041b344778648ff3361640fce'
 var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
 
@@ -49,9 +50,9 @@ $("form").on("click", "button", function (event) {
 
 
 
-  // console.log(searchValue);
-  // getYelpChurches(searchValue)
-  // getYelpBars(searchValue)
+  console.log(searchValue);
+  getYelpChurches(searchValue)
+  getYelpBars(searchValue)
 })
 
 
@@ -59,8 +60,8 @@ $("form").on("click", "button", function (event) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-var ipAddress
+var ipAddress;
+getIP()
 
 function getIP() {  
 
@@ -71,9 +72,9 @@ $.ajax({
 })
 
 .done(function(ip){
-ipAddress = ip
-console.log(ipAddress)
-getCurrentLATLON(ipAddress)
+  ipAddress = ip
+  console.log(ipAddress)
+  getCurrentLATLON(ipAddress)
 });
 
 }  
@@ -84,10 +85,13 @@ getCurrentLATLON(ipAddress)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 // getCurrentLATLON()
 
-var longitude;
-var latitude;
+var geolongitude;
+var geolatitude;
+var mathLatitude;
+var mathLongitude;
 
 function getCurrentLATLON() {
 
@@ -98,30 +102,32 @@ function getCurrentLATLON() {
   })
 
     .done(function (response) {
-      console.log(response)
-      latitude = response.latitude
-      longitude =response.longitude
-      console.log(response.latitude)
+      console.log("this is geo response", response)
+      geolatitude  = response.latitude;
+      geolongitude = response.longitude;
+      console.log("this is response lat", response.latitude)
       console.log(response.longitude)
-      getWeather(latitude, longitude)
+      mathLatitude  = geolatitude;
+      mathLongitude = geolongitude;
+      getGeoWeather(mathLongitude, mathLatitude)
     });
+// I had an error and i totally messed it up trying to fix it and basically, I did a ton of work literally just to end up at the same point lmao
+
 
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// getWeather()
 
-function getWeather() {  
+function getGeoWeather() {  
+ console.log("geoweather");
+ console.log(mathLatitude, mathLongitude);
+var okay = mathLatitude;
+var oman = mathLongitude;
 
 
   $.ajax({
-  
-    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-    latitude +
-    "&lon=" +
-    longitude +
+   
+    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + okay + "&lon=" + oman +
     "&exclude=minutely,hourly,alerts&units=imperial&appid=bcf0f3e083d40c7832b737bfb3c1e368",
     method: 'GET',
     dataType: 'JSON',
@@ -138,8 +144,38 @@ function getWeather() {
     $("#weatherInfo").append('<p>Hi: ' + weatherData.daily[0].temp.max + '<p/>');
     $("#weatherInfo").append('<p>Lo: ' + weatherData.daily[0].temp.min + '<p/>');
   });
-  
-  } 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log(mathLatitude, mathLongitude);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -208,6 +244,9 @@ function getYelpChurches(searchValue) {
   });
 
 }
+
+var yelpLon;
+var yelpLat;
 
 function getYelpBars(searchValue) {
 
@@ -290,7 +329,26 @@ function getYelpBars(searchValue) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// from latlon in yelp
+// getWeather()
+
+function getWeather() {  
+
+
+$.ajax({
+
+  url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+  method: 'GET',
+  dataType: 'JSON',
+})
+
+.done(function(weatherdata){
+console.log(weatherdata)
+});
+
+}  
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
