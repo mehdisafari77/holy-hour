@@ -103,7 +103,7 @@ function getCurrentLATLON() {
       longitude =response.longitude
       console.log(response.latitude)
       console.log(response.longitude)
-      
+      getWeather(latitude, longitude)
     });
 
 }
@@ -118,13 +118,18 @@ function getWeather() {
 
   $.ajax({
   
-    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=5de4fe643c36c638596fa3acd666e2a7",
+    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    latitude +
+    "&lon=" +
+    longitude +
+    "&exclude=minutely,hourly,alerts&units=imperial&appid=bcf0f3e083d40c7832b737bfb3c1e368",
     method: 'GET',
     dataType: 'JSON',
   })
   
   .done(function(weatherdata){
   console.log(weatherdata)
+
   });
   
   } 
