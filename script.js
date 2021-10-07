@@ -1,9 +1,8 @@
 
-
 //yelp API    https://api.yelp.com/v3
-
+getIP();
 const apiKey = 'XuUUt7lnbYUG63HR5z0Su4ocNLuloHrt9lCfUn5UHT1vnKmSaYvi_IHTHfaUUHkVwkkxquBgDxLXFz3MX-PnVo2wxlnyLuoRy6v6a5quYvAMNVYPkjp7U9xM8HRbYXYx';
-const geolocationkey = 'a455a329f72d49f388ef3860c0d2ba02'
+const geolocationkey = 'da38427041b344778648ff3361640fce'
 
 var geofetch = 'https://api.ipgeolocation.io/ipgeo&apiKey=' + geolocationkey;
 
@@ -50,9 +49,9 @@ $("form").on("click", "button", function (event) {
 
 
 
-  console.log(searchValue);
-  getYelpChurches(searchValue)
-  getYelpBars(searchValue)
+  // console.log(searchValue);
+  // getYelpChurches(searchValue)
+  // getYelpBars(searchValue)
 })
 
 
@@ -61,21 +60,23 @@ $("form").on("click", "button", function (event) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// getIP()
+var ipAddress
 
-// function getIP() {  
+function getIP() {  
 
-// $.ajax({
-//   url: 'https://api.ipify.org',
-//   method: 'GET',
-//   dataType: 'JSON',
-// })
+$.ajax({
+  url: 'https://api.ipify.org',
+  method: 'GET',
+  // dataType: 'JSON',
+})
 
-// .done(function(ip){
-// console.log(ip)
-// });
+.done(function(ip){
+ipAddress = ip
+console.log(ipAddress)
+getCurrentLATLON(ipAddress)
+});
 
-// }  
+}  
 
 
 
@@ -85,22 +86,61 @@ $("form").on("click", "button", function (event) {
 
 // getCurrentLATLON()
 
+var longitude;
+var latitude;
+
 function getCurrentLATLON() {
 
   $.ajax({
-    url: 'https://api.ipify.org',
+    url: 'https://api.ipgeolocation.io/ipgeo?apiKey=' + geolocationkey + '&ip=' + ipAddress,
     method: 'GET',
     dataType: 'JSON',
   })
 
-    .done(function (latlon) {
-      console.log(latlon)
+    .done(function (response) {
+      console.log(response)
+      latitude = response.latitude
+      longitude =response.longitude
+      console.log(response.latitude)
+      console.log(response.longitude)
+      getWeather(latitude, longitude)
     });
 
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// getWeather()
+
+function getWeather() {  
+
+
+  $.ajax({
+  
+    url: "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    latitude +
+    "&lon=" +
+    longitude +
+    "&exclude=minutely,hourly,alerts&units=imperial&appid=bcf0f3e083d40c7832b737bfb3c1e368",
+    method: 'GET',
+    dataType: 'JSON',
+  })
+  
+  .done(function(weatherData){
+  console.log(weatherData);
+  var icon =
+      "http://openweathermap.org/img/wn/" +
+      weatherData.current.weather[0].icon +
+      "@2x.png";
+      $("#weatherInfo").append("<img id='currentIcon' src='http://openweathermap.org/img/wn/04n@2x.png' alt='icon of current weather'>");
+    $(currentIcon).attr('srv', icon);
+    $("#weatherInfo").append('<p>Hi: ' + weatherData.daily[0].temp.max + '<p/>');
+    $("#weatherInfo").append('<p>Lo: ' + weatherData.daily[0].temp.min + '<p/>');
+  });
+  
+  } 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -250,26 +290,7 @@ function getYelpBars(searchValue) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//from latlon in yelp
-// getWeather()
-
-// function getWeather() {  
-
-
-// $.ajax({
-
-//   url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + yelpLat + "&lon=" + yelpLon + "&appid=5de4fe643c36c638596fa3acd666e2a7",
-//   method: 'GET',
-//   dataType: 'JSON',
-// })
-
-// .done(function(weatherdata){
-// console.log(weatherdata)
-// });
-
-// }  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
