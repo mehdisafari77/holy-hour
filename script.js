@@ -127,14 +127,16 @@ function getWeather() {
     dataType: 'JSON',
   })
   
-  .done(function(weatherdata){
-  console.log(weatherdata);
+  .done(function(weatherData){
+  console.log(weatherData);
   var icon =
       "http://openweathermap.org/img/wn/" +
-      weatherdata.current.weather[0].icon +
+      weatherData.current.weather[0].icon +
       "@2x.png";
       $("#weatherInfo").append("<img id='currentIcon' src='http://openweathermap.org/img/wn/04n@2x.png' alt='icon of current weather'>");
     $(currentIcon).attr('srv', icon);
+    $("#weatherInfo").append('<p>Hi: ' + weatherData.daily[0].temp.max + '<p/>');
+    $("#weatherInfo").append('<p>Lo: ' + weatherData.daily[0].temp.min + '<p/>');
   });
   
   } 
