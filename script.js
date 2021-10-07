@@ -42,6 +42,12 @@ function showCity() {
   document.getElementById("fifth-city").innerHTML = allCities[4];
 }
 
+var firstCityClick = document.getElementById("first-city");
+var secondCityClick = document.getElementById("second-city");
+var thirdCityClick = document.getElementById("third-city");
+var fourthCityClick = document.getElementById("fourth-city");
+var fifthCityClick = document.getElementById("fifth-city");
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
