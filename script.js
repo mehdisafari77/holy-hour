@@ -48,6 +48,41 @@ var thirdCityClick = document.getElementById("third-city");
 var fourthCityClick = document.getElementById("fourth-city");
 var fifthCityClick = document.getElementById("fifth-city");
 
+firstCityClick.addEventListener("click", function (event) {
+  searchValue = allCities[0];
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+});
+
+secondCityClick.addEventListener("click", function (event) {
+  searchValue = allCities[1];
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+});
+
+thirdCityClick.addEventListener("click", function (event) {
+  searchValue = allCities[2];
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+});
+
+fourthCityClick.addEventListener("click", function (event) {
+  searchValue = allCities[3];
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+});
+
+fifthCityClick.addEventListener("click", function (event) {
+  searchValue = allCities[4];
+  console.log(searchValue);
+  getYelpChurches(searchValue);
+  getYelpBars(searchValue);
+});
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
