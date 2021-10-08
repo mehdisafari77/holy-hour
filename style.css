@@ -1,47 +1,33 @@
 /* start of dynamically displayed comtent for bars and churches styling */
 
-/* * {
-    box-sizing: border-box;
-} */
-
 #innerBody {
     width: 100%;
     display: flex;
     position: relative;
-    /* left: -10%; */
     justify-content: center;
     flex-direction: row;
     align-content: center;
     flex-wrap: nowrap;
 }
-
 .card img{
     height: 300px;
     width: 400px;
 }
-
 p {
     font-size: 22px;
     font-family: 'Josefin Sans', sans-serif;
 }
-
 #bar-num {
     font-size: 20px;
     font-family: 'Josefin Sans', sans-serif;
 }
-
 #church-num {
     font-size: 20px;
     font-family: 'Josefin Sans', sans-serif;
 }
-
-/* end of dynamically displayed comtent for bars and churches styling */
-
-
 main {
     flex: 1 0 auto;
 }
-
 button {
     background-color: transparent;
     font-family: 'Josefin Sans', sans-serif;
@@ -57,13 +43,24 @@ button {
     font-family: 'Josefin Sans', sans-serif;    
     font-size: 22px;
 }
-
 .navbar {
     display: flex;
     background-color: #c98af3;
     font-family: 'Josefin Sans', sans-serif;
 }
-
+.navbar input[type=text] {
+    background-color: lavender;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 15px 0px 0px 15px;
+    outline: none;
+    height: 3rem;
+    width: 19rem;
+    font-size: 18px;
+    margin: 8px 0px 8px 8px;
+    padding: 0;
+    box-shadow: 0px 10px 50px darkgoldenrod;
+}
 .navbar p {
     display: flex;
     flex-direction: flex-start;
@@ -73,30 +70,35 @@ button {
     text-decoration: none;
     font-size: 17px;
 }
-
 .navbar p:hover {
     background-color: rgb(103, 230, 235);
     color: black;
 }
-
-.navbar input[type=text] {
-    margin-left: 10px;
-    background-color: #fff;
-    padding: 4px;
-    margin-top: 8px;
-    font-size: 17px;
-    border-radius: 10%;
-}
-
-
 .navbar .search-container button {
     float: right;
+    display: flex;
+    align-items: baseline;
     padding: 6px 10px;
     margin-top: 8px;
     margin-right: 16px;
     font-size: 17px;
     border: none;
     cursor: pointer;
+}
+.search-container {
+    display:flex;
+    flex-direction: row;
+}
+.navbar .search-container form button {
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0px 0px 0px -1px;
+    border-radius: 2px 15px 15px 2px;
+    height: 3rem;
+    width: 3rem;
+    box-shadow: 15px 0px 30px goldenrod;
+    padding-left: 10px;
+    background-color: lavender;
 }
 .styleIdButton {
     background-color: lavender;
@@ -109,17 +111,16 @@ button {
 .navbar .search-container button:hover {
     background: #803bce;
 }
-
 form {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-/* end of header styling */
+
+
 
 /* start of middle container styling */
-
 .middleContainer {
     display: flex;
     flex-direction: column;
@@ -129,8 +130,6 @@ form {
     margin-left: 20px;
     margin-right: 20px;
 }
-    
-
 #resultsBox {
     display: flex;
     flex-direction: column;
@@ -140,24 +139,23 @@ form {
     height: 200px;
     width: 330px;
     font-family: 'Josefin Sans', sans-serif;
+    flex-wrap: nowrap;
     align-content: center;
-}
 
+}
 #weatherBox {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: 2px dashed #803bce;
     height: 200px;
     width: 330px;
-
     font-family: 'Courier New', Courier, monospace;
     align-content: center;
     flex-wrap: wrap;
 
 }
-
 #resultsBoxHeader {
     display: flex;
     flex-direction: row;
@@ -167,7 +165,6 @@ form {
     height: 50px;
     width: 150px;
 }
-
 #weatherBoxHeader {
     display: flex;
     flex-direction: row;
@@ -180,24 +177,25 @@ form {
 #resultsBoxHeader p {
     font-size: 22px;
 }
+#resultInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:140px;
+}
 #weatherBoxHeader p {
     font-size: 22px;
 }
-
 #weatherInfo {
     display: flex;
     flex-direction: row;
     align-items: baseline;
     height:140px;
 }
-
 #weatherInfo div {
         margin: 0px 5px 5px 0px;
         height: fit-content;
 }
-/* end of middle container styling */
-
-
 #churches {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -207,7 +205,6 @@ form {
   width: 100%;
   height: 800px;
 }
-
 #bars {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -217,14 +214,12 @@ form {
     width: 100%;
     height: 800px;
 }
-
 .card-image {
     display: flex;
     flex-wrap: wrap;
     height: 400px;
     width: 400px;
 }
-
 #rightContainer{
     display:flex;
     justify-content: center;
@@ -234,13 +229,11 @@ form {
     display: flex;
     justify-content:center;
 }
-
 .card .card-image .card-title {
     color: black;
 }
 
-/*  */
-
+/* landing page styling */
 #landingPageContainer {
     background-color: lavender;
     display: flex;
@@ -253,7 +246,6 @@ form {
     align-content: center;
     align-items: center;
 }
-
 #landingInnerContainer {
     background-color: #803bce;
     box-shadow: 0px 1px 50px goldenrod;
@@ -266,11 +258,7 @@ form {
     height: 75vh;
     align-content: center;
     align-items: center;
-    /* overflow-y: hidden;
-    overflow-x: hidden; 
-    I'ts cool but not really necessary*/
 }
-
 #landing-search-value1 {
     background-color: lavender;
     border: none;
@@ -284,7 +272,6 @@ form {
     padding: 0;
     box-shadow: 0px 10px 50px darkgoldenrod;
 }
-
 #landing-search-button {
     font-size: 100%;
     line-height: 1.15;
@@ -296,10 +283,6 @@ form {
     padding-left: 10px;
     background-color: lavender;
 }
-
-/* #landing-search-button::placeholder {
-    color:black;
-} */
 ::placeholder {
     font-family: 'Quicksand', sans-serif;
     color:black;
@@ -313,7 +296,6 @@ form {
     height: fit-content;
     width: fit-content;
 }
-
 #landingTitleBox {
     background-color: lavender;
     width: fit-content;
@@ -323,11 +305,9 @@ form {
     padding: 0px 15px 10px 15px;
     box-shadow: 0px -10px 50px 20px gold;
 }
-
 #landingTitleWords {
     font-family: 'Quicksand', sans-serif;
 }
-
 #landingGEOButton {
     font-family: 'Quicksand', sans-serif;
     margin-top: 20px;
@@ -337,186 +317,316 @@ form {
     border-radius: 10px;
     box-shadow: 2px 0px 30px 2px goldenrod;
 }
-
 #outerInnerBody {
     display:none;
 }
 
-.navbar input[type=text] {
-    background-color: lavender;
-    border: none;
-    border-bottom: 1px solid #9e9e9e;
-    border-radius: 15px 0px 0px 15px;
-    outline: none;
-    height: 3rem;
-    width: 19rem;
-    font-size: 18px;
-    margin: 8px 0px 8px 8px;
-    padding: 0;
-    box-shadow: 0px 10px 50px darkgoldenrod;
-}
-
-.search-container {
-    display:flex;
-    flex-direction: row;
-}
-
-.navbar .search-container form button {
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0px 0px 0px -1px;
-    border-radius: 2px 15px 15px 2px;
-    height: 3rem;
-    width: 3rem;
-    box-shadow: 15px 0px 30px goldenrod;
-    padding-left: 10px;
-    background-color: lavender;
-}
-
 #historyButton {
+    display: flex;
+    align-items: baseline;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border-radius:20px;
 }
 
-
-@media only screen and (max-width: 1350px) {
-    body {
-      background-color: lightblue;
-      display:flex;
-      /* Just keeping this un-hidden as a reminder */
+/* responsive media query start */
+@media (max-width: 1185px) {
+    .styleIdButton {
+        top: 0px;
+        bottom: 2px;
     }
-    #innerBody {
-        display:flex;
-        flex-shrink: 3;
+    p {
+        font-size: 17px;
     }
-    .middleContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        height: 250px;
-        margin-left: 200px;
-        margin-right: 200px;
-        order:5;
-        flex-shrink: 3;
+    #bar-num {
+        font-size: 19px;
+    }
+    #church-num {
+        font-size: 19px;
+    }
+    .header {  
+        font-size: 20px;
+    }
+    .navbar input[type=text] {
+        height: 2.5rem;
+        width: 17rem;
+        font-size: 17px;
+    }
+    .navbar p {
+        padding: 13px 14px;
+        font-size: 16px;
+    }
+    .navbar .search-container button {
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+    }
+    .navbar .search-container form button {
+        height: 2.6rem;
+        width: 2.5rem;
+        padding-left: 10px;
+    }
+    #resultsBox {
+        height: 150px;
+        width: 150px;
     }
     #weatherBox {
-        display:flex;
-        flex-direction: column;
-        flex-wrap:wrap;
-        align-content:center;
-        justify-content:center;
-        align-items:flex-start;
+        height: 150px;
+        width: 150px;
     }
-
-    #leftContainer {
-        /* display: flex; */
-        position: relative;
-        /* left: -50px; */
-        width: 45%;
-        /* float:left; */
-        justify-content:center;
-        order:6;
-        flex-direction: column;
-        /* margin-right:10px; */
-        flex-shrink: 3;
-        align-content: center;
+    #resultsBoxHeader {
+        height: 30px;
+        width: 100px;
     }
-    .header {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        justify-content: space-around;
-        background-color: #c98af3;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 22px;
-        align-content: stretch;
-        flex-wrap: wrap;
+    #weatherBoxHeader {
+        height: 30px;
+        width: 100px;
     }
-
-    #rightContainer {
-    /* display: flex; */
-    position: relative;
-    right: 40px;
-    width: 45%;
-    /* float:right; */
-    justify-content:center;
-    order:7;
-    flex-direction: column;
-    /* margin-left:10px; */
-    /* margin-right:5px; */
-    flex-shrink: 3;
-    align-content: center;
-}
-    .card {
-        flex-direction: column;
-        display:flex;
-        justify-content: center;
-        text-align: center;
-        flex-shrink: 3;
-        align-items: center;
+    #resultsBoxHeader p {
+        font-size: 18px;
     }
-    /* .card-image{
-        display:flex;
-        width: 100%;
-        height: 100%;
-        flex: 0 1 300px;
-    } */
-
-    .card .card-image img {
-        display: block;
-        border-radius: 2px 2px 0 0;
-        position: relative;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 90%;
-        flex-shrink: 3;
+    #resultInfo {
+        height:100px;
+    }
+    #weatherBoxHeader p {
+        font-size: 18px;
+    }
+    #weatherInfo {
+        height:100px;
+    }
+    #currentIcon {
+        height: 50px;
+        width: 50px;
+    }
+    .card img{
+        height: 280px;
+        width: 330px;
     }
     .card-image {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        flex-wrap: wrap;
-        height: 10%;
-        width: 400px;
+        height: 350px;
+        width: 350px;
+    }
+    .card .card-image .card-title {
+       font-size: 17px;
+    }
+    #churches {
+        width: 100%;
+        height: 900px;
+      }
+      #bars {
+          width: 100%;
+          height: 900px;
+      }
+      #historyButton {
+          height: 50px
+      }
+}
 
+@media (max-width: 920px) {
+    p {
+        font-size: 16px;
     }
-    .card-title {
-        position:relative !important;
-        display:flex;
-        flex-wrap:wrap;
+    #bar-num {
+        font-size: 16px;
     }
-    .card .card-content {
-        padding: 24px;
+    #church-num {
+        font-size: 16px;
+    }
+    .header {  
+        font-size: 19px;
+    }
+    .navbar input[type=text] {
+        height: 2.2rem;
+        width: 16rem;
+        font-size: 16px;
+    }
+    .navbar p {
+        padding: 12px 13px;
+        font-size: 16px;
+    }
+    .navbar .search-container button {
+        padding: 5px 9px;
+        margin-top: 7px;
+        margin-right: 15px;
+        font-size: 16;
+    }
+    .navbar .search-container form button {
+        height: 2.4rem;
+        width: 2.3rem;
+        padding-left: 9px;
+    }
+    #resultsBox {
         display: flex;
-        border-radius: 0 0 2px 2px;
-        width: 50%;
         flex-direction: column;
-        flex-shrink: 1;
-        align-content: center;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        align-content: flex-start;
+        height: 130px;
+        width: 130px;
     }
-
-    #innerBody {
-        /* width: 100%; */
+    .middleContainer {
+        height: 400px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #weatherBox {
         display: flex;
-        justify-content: center;
-        flex-direction: row;
-        /* align-content: center; */
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: flex-start;
+        height: 130px;
+        width: 130px;
     }
-
-    @media only screen and (max-width: 768px) {
-    #landingDescriptionWords p{
-        font-size: 13px;
+    #resultsBoxHeader {
+        height: 20px;
+        width: 70px;
+    }
+    #weatherBoxHeader {
+        height: 20px;
+        width: 70px;
+    }
+    #resultsBoxHeader p {
+        font-size: 16px;
+    }
+    #resultInfo {
+        height:50px;
+    }
+    #weatherBoxHeader p {
+        font-size: 16px;
+    }
+    #weatherInfo {
+        height:70px;
+    }
+    #currentIcon {
+        height: 40px;
+        width: 40px;
+    }
+    .card img{
+        height: 180px;
+        width: 240px;
+    }
+    .card-image {
+        height: 300px;
+        width: 300px;
+    }
+    .card .card-image .card-title {
+       font-size: 16px;
+    }
+    #churches {
+        width: 100%;
+        height: 900px;
+      }
+      #bars {
+          width: 100%;
+          height: 900px;
+      }
+      #historyButton {
+        height: 40px
+    }
+}
+@media (max-width: 800px) {
+    p {
+        font-size: 15px;
+    }
+    #bar-num {
+        font-size: 15px;
+    }
+    #church-num {
+        font-size: 15px;
+    }
+    .header {  
+        font-size: 18px;
+    }
+    .navbar input[type=text] {
+        height: 2.1rem;
+        width: 15rem;
+        font-size: 15px;
+    }
+    .navbar p {
+        padding: 11px 12px;
+        font-size: 16px;
+    }
+    .navbar .search-container button {
+        padding: 5px 9px;
+        margin-top: 7px;
+        margin-right: 15px;
+        font-size: 16;
+    }
+    .navbar .search-container form button {
+        height: 2.4rem;
+        width: 2.3rem;
+        padding-left: 9px;
+    }
+    #resultsBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: flex-start;
+        height: 130px;
+        width: 130px;
+    }
+    .middleContainer {
+        height: 400px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #weatherBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: flex-start;
+        height: 130px;
+        width: 130px;
+    }
+    #resultsBoxHeader {
+        height: 20px;
+        width: 70px;
+    }
+    #weatherBoxHeader {
+        height: 20px;
+        width: 70px;
+    }
+    #resultsBoxHeader p {
+        font-size: 16px;
+    }
+    #resultInfo {
+        height:50px;
+    }
+    #weatherBoxHeader p {
+        font-size: 16px;
+    }
+    #weatherInfo {
+        height:70px;
+    }
+    #currentIcon {
+        height: 40px;
+        width: 40px;
+    }
+    .card img{
+        height: 180px;
+        width: 240px;
+    }
+    .card-image {
+        height: 300px;
+        width: 300px;
+    }
+    .card .card-image .card-title {
+       font-size: 16px;
+    }
+    #churches {
+        width: 100%;
+        height: 900px;
+      }
+      #bars {
+          width: 100%;
+          height: 900px;
+      }
+      #historyButton {
+        height: 40px
     }
 
 }
-}
-
-
-
-  
