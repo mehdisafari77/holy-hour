@@ -30,8 +30,12 @@ See review count as well as location rating, and get currently updated weather f
 
 ## Deployed Link
 
+
+
 * [See Live Site](https://divinemayura.github.io/holy-hour/)
 
+![landing](images/landing.jpg)
+![main](images/main.jpg)
 
 ## Authors
 
@@ -59,10 +63,10 @@ See review count as well as location rating, and get currently updated weather f
 
 This project is licensed under the MIT License 
 
-<!-- ## Image of Site: -->
+## Images of Site:
 
+![alt text](images/code1.jpg)
 
-
-
+![alt text](images/code2.jpg)
 
 

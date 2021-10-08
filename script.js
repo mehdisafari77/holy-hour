@@ -94,12 +94,12 @@ vex.dialog.confirm({
   message: "You need to enable CORS for this site. Click 'OK' to go now",
   callback: function (value) {
     if (value) {
-        console.log("LETS GO")
-        window.open("https://cors-anywhere.herokuapp.com/corsdemo");
+      console.log("LETS GO")
+      window.open("https://cors-anywhere.herokuapp.com/corsdemo");
     } else {
-        console.log("No, thankyou...")
+      console.log("No, thankyou...")
     }
-}
+  }
 })
 
 
@@ -135,16 +135,16 @@ $("form").on("click", "#landing-search-button", function (event) {
 $("#landingGEOButton").on("click", function (event) {
   event.preventDefault();
 
-document.getElementById("landingPageContainer").style.display = "none";
-document.getElementById("outerInnerBody").style.display = "block";
-showCity();
+  document.getElementById("landingPageContainer").style.display = "none";
+  document.getElementById("outerInnerBody").style.display = "block";
+  showCity();
 })
 $("#mGEOButton").on("click", function (event) {
   event.preventDefault();
 
-document.getElementById("landingPageContainer").style.display = "none";
-document.getElementById("outerInnerBody").style.display = "block";
-getIP()
+  document.getElementById("landingPageContainer").style.display = "none";
+  document.getElementById("outerInnerBody").style.display = "block";
+  getIP()
 })
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,7 +167,6 @@ function getIP() {
     });
 
 }
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -401,7 +400,7 @@ function getYelpGEOBars(geolatitude, geolongitude) {
 function getYelpChurches(searchValue) {
 
   let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -409,13 +408,14 @@ function getYelpChurches(searchValue) {
       "accept": "application/json",
       "x-requested-with": "xmlhttprequest",
       "Access-Control-Allow-Origin": "*",
-      "Authorization": `Bearer ${apiKey}`},
+      "Authorization": `Bearer ${apiKey}`
+    },
     data: {
       term: 'Church',
       location: searchValue
     },
-    error: function(req) {vex.dialog.alert('Invalid Search Entry. Please Keep it to City or Town names. Thank you.')}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    error: function (req) { vex.dialog.alert('Invalid Search Entry. Please Keep it to City or Town names. Thank you.') }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   }).then(function (res) {
     $("#currentIcon").remove();
     $("#currentIcon").remove();
@@ -464,8 +464,8 @@ function getYelpChurches(searchValue) {
       `
     churchDiv.innerHTML = churchCount;
 
-      document.getElementById("landingPageContainer").style.display = "none";
-      document.getElementById("outerInnerBody").style.display = "block";
+    document.getElementById("landingPageContainer").style.display = "none";
+    document.getElementById("outerInnerBody").style.display = "block";
   });
 
 }
@@ -576,10 +576,10 @@ function getYelpBars(searchValue) {
 
 // }
 function getWeather(yelpLat, yelpLon) {
-//   console.log("Getting Yelp Weather");
-//   // console.log(mathLatitude, mathLongitude);
-//   // var okay = mathLatitude;
-//   // var oman = mathLongitude;
+  //   console.log("Getting Yelp Weather");
+  //   // console.log(mathLatitude, mathLongitude);
+  //   // var okay = mathLatitude;
+  //   // var oman = mathLongitude;
 
 
   $.ajax({
