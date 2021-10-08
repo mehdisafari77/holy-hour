@@ -900,23 +900,23 @@ form {
           height: 750px;
       }
 }
-@media (max-width: 530px) {
+@media (max-width: 420px) {
     p {
-        font-size: 11px;
+        font-size: 10px;
     }
     #bar-num {
-        font-size: 11px;
+        font-size: 10px;
     }
     #church-num {
-        font-size: 11px;
+        font-size: 10px;
     }
     button, input {
         overflow: visible;
-        font-size: 11px;
+        font-size: 10px;
         width: 60px;
     }
     .header {  
-        font-size: 13px;
+        font-size: 12px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -925,44 +925,47 @@ form {
         align-items: center;
     }
     .navbar input[type=text] {
-        height: 1.3rem;
-        width: 9rem;
-        font-size: 12px;
+        height: 1.1rem;
+        width: 7rem;
+        font-size: 11px;
     }
     .navbar p {
-        padding: 5px 5px;
-        font-size: 12px;
+        padding: 4px 4px;
+        font-size: 11px;
     }
     .navbar .search-container button {
         padding: 3px 3px;
         margin-top: 4px;
         margin-right: 8px;
-        font-size: 13;
+        font-size: 11;
     }
     .navbar .search-container form button {
-        height: 1.5rem;
-        width: 1.5rem;
+        height: 1.2rem;
+        width: 1.3rem;
         padding-left: 8px;
     }
     .card .card-content {
-        padding-top: 6px;
-        padding-left: 6px;
-        padding-right: 6px;
-        padding-bottom: 6px;
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
     }
     #historyButton {
-        height: 20px
+        height: 15px
     }
     #mGEOButton {
         font-size: 10px;
-        width: 100px;
+        width: 80px;
     }
     .dropdown-trigger {
-        width: 60px;
-        height: 40px;
+        width: 70px;
+        height: 45px;
     }
     #landingUseLocationOption {
         font-size: 10px;
+    }
+    #landingPafeContainer {
+        width: 500px;
     }
     .card {
         display: flex;
@@ -971,30 +974,30 @@ form {
         align-content: center;
         justify-content: center;
         align-items: center;
-        width: 160px;
+        width: 125px;
     }
     .card .card-image .card-title {
-        padding-top: 6px;
-        padding-left: 6px;
-        padding-right: 6px;
-        padding-bottom: 6px;
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
     }
     .card .card-action {
-        padding-top: 6px;
-        padding-left: 6px;
-        padding-right: 6px;
-        padding-bottom: 6px;
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
     }
     .card img{
-        height: 90px;
-        width: 100px;
+        height: 80px;
+        width: 90px;
     }
     .card-image {
         height: 160px;
-        width: 140px;
+        width: 115px;
     }
     .card .card-image .card-title {
-       font-size: 13px;
+       font-size: 12px;
     }
     #churches {
         width: 100%;
@@ -1004,5 +1007,7 @@ form {
           width: 100%;
           height: 750px;
       }
-
+      .vex.vex-theme-os .vex-content {
+        font-size: 11px;
+    }
 }
