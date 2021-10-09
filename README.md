@@ -1,9 +1,26 @@
-# holy-hour
+# Holy-Hour
 
 A site to compare the amount of bars and the amout of churches a town or city has, within a 5 mile radius.
 See review count as well as location rating, and get currently updated weather for that locatoin.
 
+## Code Snippet of how Yelp Fusion Api is Used in order to work without CORS error
+```javascript
+ let queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=50";
 
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    headers: {
+      "accept": "application/json",
+      "x-requested-with": "xmlhttprequest",
+      "Access-Control-Allow-Origin": "*",
+      "Authorization": `Bearer ${apiKey}`
+    },
+    data: {
+      term: 'Bar',
+      location: searchValue
+    }
+```
 
 ## Built With
 
@@ -24,21 +41,13 @@ See review count as well as location rating, and get currently updated weather f
 * [YelpFusionAPI](https://www.yelp.com/fusion)
 * [Open_Weather_Map_One_Call_API](https://openweathermap.org/api/one-call-api)
 
-
-
-
-
 ## Deployed Link
-
-
-
 * [See Live Site](https://divinemayura.github.io/holy-hour/)
 
 ![landing](images/landing.jpg)
 ![main](images/main.jpg)
 
 ## Authors
-
 
 * **Erik Gustuson**
 
@@ -57,7 +66,6 @@ See review count as well as location rating, and get currently updated weather f
 - [Link to Portfolio Site](https://mehdisafari77.github.io/Basic-Bio/)
 - [Link to Github](https://github.com/mehdisafari77)
 - [Link to LinkedIn](https://www.linkedin.com/in/mehdi-safari-992799142/)
-
 
 ## License
 
